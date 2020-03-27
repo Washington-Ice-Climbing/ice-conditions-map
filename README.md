@@ -19,6 +19,6 @@ yarn add <dep>
 ```
 
 ## Technologies used
-- AntJs
-- ReactJs
-- NextJs
+- [AntJs](https://ant.design/)
+- [ReactJs](https://reactjs.org/)
+- [NextJs](https://nextjs.org/)

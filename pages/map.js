@@ -111,6 +111,19 @@ export default class Index extends Component {
                                 <Menu.Item key="8">Medium</Menu.Item>
                                 <Menu.Item key="9">Hard</Menu.Item>
                             </SubMenu>
+                            <SubMenu
+                                key="sub3"
+                                title={
+                                    <span>
+                                    <TeamOutlined />
+                                    <span>Season</span>
+                                </span>
+                                }
+                            >
+                                <Menu.Item key="10">Late Fall</Menu.Item>
+                                <Menu.Item key="11">Mid Winter</Menu.Item>
+                                <Menu.Item key="12">Early Spring</Menu.Item>
+                            </SubMenu>
                         </Menu>
                     </Sider>
                     <Layout className="site-layout">

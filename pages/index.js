@@ -55,7 +55,7 @@ export default class Index extends Component {
 
     render() {
         const routeCards = this.state.routes.map(r =>
-            <Col span={6} md={6} sm={12} xs={24}>
+            <Col span={6} md={6} sm={12} xs={24} key={r.title}>
                 <RouteCard route={r}/>
             </Col>
         );

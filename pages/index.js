@@ -1,24 +1,17 @@
-import {Layout, Menu, Breadcrumb, Col, Row} from 'antd';
-import {
-    DesktopOutlined,
-    PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
-
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;import "../style.less";
+import {Breadcrumb, Col, Layout, Row} from 'antd';
+import "../style.less";
 import Topbar from "../components/Topbar";
 import React, {Component} from "react";
 import RouteCard from "../components/RouteCard";
+import RouteSelectionSidebar from "../components/RouteSelectionSidebar";
+
+const { Content, Footer } = Layout;
 
 export default class Index extends Component {
 
     constructor() {
         super();
         this.state = {
-            collapsed: false,
             routes: [
                 {
                     imgSrc: "/static/images/sloan.jpg",
@@ -60,11 +53,6 @@ export default class Index extends Component {
         };
     }
 
-
-    onCollapse = collapsed => {
-        this.setState({ collapsed });
-    };
-
     render() {
         const routeCards = this.state.routes.map(r =>
             <Col span={6} md={6} sm={12} xs={24}>
@@ -75,44 +63,7 @@ export default class Index extends Component {
             <div>
                 <Topbar/>
                 <Layout style={{paddingTop: '64px'}}>
-                    <Sider
-                        collapsible
-                        collapsed={this.state.collapsed}
-                        onCollapse={this.onCollapse}>
-                        <div className="logo" />
-                        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-
-                            <SubMenu
-                                key="sub1"
-                                title={
-                                    <span>
-                                    <UserOutlined />
-                                    <span>Region</span>
-                                </span>
-                                }
-                            >
-                                <Menu.Item key="3">Highway 20</Menu.Item>
-                                <Menu.Item key="4">US 2</Menu.Item>
-                                <Menu.Item key="5">I90</Menu.Item>
-                                <Menu.Item key="5">Highway 542</Menu.Item>
-                                <Menu.Item key="5">Mt. Rainier</Menu.Item>
-                                <Menu.Item key="5">Mt. Hood</Menu.Item>
-                            </SubMenu>
-                            <SubMenu
-                                key="sub2"
-                                title={
-                                    <span>
-                                    <TeamOutlined />
-                                    <span>Difficulty</span>
-                                </span>
-                                }
-                            >
-                                <Menu.Item key="6">Easy</Menu.Item>
-                                <Menu.Item key="8">Medium</Menu.Item>
-                                <Menu.Item key="9">Hard</Menu.Item>
-                            </SubMenu>
-                        </Menu>
-                    </Sider>
+                    <RouteSelectionSidebar />
                     <Layout className="site-layout">
                         <Content style={{ margin: '0 16px' }}>
                             <Breadcrumb style={{ margin: '16px 0' }}>

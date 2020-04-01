@@ -1,12 +1,13 @@
 import {Breadcrumb, Col, Layout, Row} from 'antd';
 import "../style.less";
 import Topbar from "../components/Topbar";
+import PageFooter from "../components/Footer";
 import React from "react";
 import RouteCard from "../components/RouteCard";
 import RouteSelectionSidebar from "../components/RouteSelectionSidebar";
 import fetch from 'node-fetch'
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 export default function Index(props) {
 
@@ -17,19 +18,20 @@ export default function Index(props) {
     );
     return (
         <div>
-            <Topbar/>
+            <Topbar title="WA Ice" subTitle="The Elusive Beast"/>
             <Layout style={{paddingTop: '64px'}}>
                 <RouteSelectionSidebar />
                 <Layout className="site-layout">
                     <Content style={{ margin: '0 16px' }}>
                         <Breadcrumb style={{ margin: '16px 0' }}>
+                            <Breadcrumb.Item>Home</Breadcrumb.Item>
                             <Breadcrumb.Item>Routes</Breadcrumb.Item>
                         </Breadcrumb>
                         <Row gutter={16}>
                             {routeCards}
                         </Row>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>Created by Kyle McCrohan ©2020</Footer>
+                    <PageFooter/>
                 </Layout>
             </Layout>
         </div>

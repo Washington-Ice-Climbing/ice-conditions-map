@@ -6,7 +6,8 @@ export default class RouteCard extends Component {
     render() {
         const route = this.props.route
         return (
-            <Link href="/routes/[rid]" as={`/routes/${route.rid}`}>
+            // "slug" is correct. If you change it, the styling of the carousel will be broken.
+            <Link href="/routes/[slug]" as={`/routes/${route.rid}`}>
                 <Card
                     hoverable
                     cover={

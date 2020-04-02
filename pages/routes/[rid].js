@@ -26,7 +26,7 @@ export default function Route({route, status}) {
                         <Breadcrumb.Item>Routes</Breadcrumb.Item>
                         <Breadcrumb.Item>{route.title}</Breadcrumb.Item>
                     </Breadcrumb>
-                    <Content style={{padding: '20px', maxWidth: '1500px', margin: '0 auto'}}>
+                    <Content style={{padding: '10px', maxWidth: '1500px', margin: '0 auto'}}>
                         <Row gutter={16}>
                             <Col span={8} md={8} sm={12} xs={24} style={{margin: '8px 0px'}}>
                                 <RouteStats/>

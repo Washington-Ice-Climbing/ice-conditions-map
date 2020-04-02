@@ -1,6 +1,6 @@
 # ice-conditions-map
 Interactive map showing crowdsourced ice climbing conditions and photos.
-Check it out at [https://ice-conditions-map.kymccrohan.now.sh]( https://ice-conditions-map.kymccrohan.now.sh).
+Check it out at [https://wa-ice.now.sh]( https://wa-ice.now.sh).
 
 ## Getting started
 Install dependencies:
@@ -37,7 +37,12 @@ Then, simply type:
 ```.env
 now
 ```
-Follow the prompts.
+Follow the prompts. You can reach it at https://ice-conditions-map.kymccrohan.now.sh.
+
+To deploy to production (https://wa-ice.now.sh):
+```.env
+now --prod
+```
 
 ## Routes
 To add a new route:

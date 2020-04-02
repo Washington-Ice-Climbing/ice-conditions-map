@@ -11,7 +11,8 @@ Run the app:
 ```.env
 npm run dev
 ```
-The app should launch in a browser. It will reload on changes to any file in the `pages` or `components` directory.
+The app should launch in a browser at `http://localhost:3000`. 
+It will reload on changes to any file in the `pages` or `components` directory.
 
 ### Adding dependencies
 For normal deps:
@@ -24,11 +25,13 @@ npm install <dep> --save-dev
 ```
 
 ### Deploying
-To deploy, first make sure it builds:
+To deploy, first deploy locally, making sure everything will work fine when it is deployed:
 ```.env
-npm run build
+now dev
 ```
-If it fails to build, deployment will stall, so we check build first.
+You can visit the site at `http://localhost:3000` and make sure it's all good.
+Currently, clicking on dynamic routes (route pages) won't work in this mode, but it should
+when deployed, so don't worry about that.
 
 Then, simply type:
 ```.env

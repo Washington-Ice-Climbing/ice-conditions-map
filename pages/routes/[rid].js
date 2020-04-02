@@ -9,6 +9,7 @@ import RouteBeta from "../../components/RouteBeta";
 import RouteLinks from "../../components/RouteLinks";
 import RouteHistory from "../../components/RouteHistory";
 import RoutePhotos from "../../components/RoutePhotos";
+import { getUrl } from "../../utils/HttpUtil"
 
 const { Content } = Layout;
 
@@ -46,11 +47,6 @@ export default function Route({route, status}) {
                                 <RouteLinks/>
                             </Col>
                         </Row>
-                        {/*<style jsx>{`*/}
-                        {/*  .ant-card {*/}
-                        {/*    padding: 8px 0px;*/}
-                        {/*  }*/}
-                        {/*`}</style>*/}
                     </Content>
                 </Content>
                 <PageFooter/>
@@ -60,7 +56,7 @@ export default function Route({route, status}) {
 }
 
 export async function getServerSideProps({ params }) {
-    const response = await fetch(`http://localhost:3000/api/routes/${params.rid}`)
+    const response = await fetch(getUrl(`api/routes/${params.rid}`))
     const route = await response.json()
 
     return {

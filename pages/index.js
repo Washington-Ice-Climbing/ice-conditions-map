@@ -6,6 +6,7 @@ import React from "react";
 import RouteCard from "../components/RouteCard";
 import RouteSelectionSidebar from "../components/RouteSelectionSidebar";
 import fetch from 'node-fetch'
+import { getUrl } from "../utils/HttpUtil"
 
 const { Content } = Layout;
 
@@ -40,7 +41,7 @@ export default function Index(props) {
 }
 
 export async function getServerSideProps() {
-    const response = await fetch('http://localhost:3000/api/routes')
+    const response = await fetch(getUrl('api/routes'))
     const routes = await response.json()
     return { props: { routes : routes } }
 }

@@ -2,20 +2,20 @@ import {Card, Layout} from 'antd';
 
 const { Content } = Layout;
 
-export default function RouteStats(props) {
+export default function RouteStats({route}) {
     return (
         <Card style={{height: '100%'}}>
             <Content>
                 <h2>Route Stats</h2>
-                <p><b>Difficulty</b>: Moderate</p>
-                <p><b>Technical Grade</b>: WI3-4</p>
-                <p><b>Length</b>: 1000'</p>
-                <p><b>Commitment</b>: Moderate</p>
-                <p><b>Avalanche Hazard</b>: High</p>
-                <p><b>Approach</b>: 4-6 hours</p>
-                <p><b>Region</b>: Mountain Loop Highway</p>
-                <p><b>Season</b>: December-March</p>
-                <p><b>FA</b>: Porter McMichael, Kyle McCrohan, Tavish Hansen, February 2020</p>
+                <p><b>Difficulty</b>: {route.difficulty}</p>
+                <p><b>Technical Grade</b>: {route.grade}</p>
+                <p><b>Length</b>: {route.length}</p>
+                <p><b>Commitment</b>: {route.commitment}</p>
+                <p><b>Avalanche Hazard</b>: {route.avalanche}</p>
+                <p><b>Approach</b>: {route.approachTime}</p>
+                <p><b>Region</b>: {route.region}</p>
+                <p><b>Season</b>: {route.season}</p>
+                <p><b>FA</b>: {route.fa}</p>
             </Content>
         </Card>
     )

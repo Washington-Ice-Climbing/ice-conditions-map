@@ -30,8 +30,6 @@ To deploy, first deploy locally, making sure everything will work fine when it i
 now dev
 ```
 You can visit the site at `http://localhost:3000` and make sure it's all good.
-Currently, clicking on dynamic routes (route pages) won't work in this mode, but it should
-when deployed, so don't worry about that.
 
 Then, simply type:
 ```.env
@@ -48,10 +46,21 @@ now --prod
 To add a new route:
 1. Add a route object to the array in `static/routes/routes.js`.
     - `rid` is the name of the folder that will hold assets for this route.
-2. Create the folder `<rid>` under `static/routes`.
-    - add `cover.jpg`
-    
-Note all photos must be square.
+    - Copy the json structure for the rest of the object. Populate data correctly.
+2. Create the folder  `static/routes/<rid>`.
+    - Inside, create a `imgs` folder (note all photos must be square):
+        - Add a `cover.jpg`. This is the cover image on the routes screen.
+        - Add any more photos you want. These will be displayed on the carousel.
+    - Create html content files:
+        - `intro.html`
+        - `approach.html`
+        - `climb.html`
+        - `descent.html`
+        - `gear.html`
+        - `conditions.html`
+        - `history.html`
+        - `links.html`
+        - `story.html` (optional)
 
 ## Technologies used
 This [setup guide](https://levelup.gitconnected.com/lets-create-a-project-with-nextjs-antd-and-deploy-with-now-sh-e38772348312) 

@@ -3,18 +3,21 @@ import "../style.less";
 import Topbar from "../components/Topbar";
 import PageFooter from "../components/Footer";
 import React from "react";
-import RouteCard from "../components/RouteCard";
+import RoutePreview from "../components/RoutePreview";
 import RouteSelectionSidebar from "../components/RouteSelectionSidebar";
 import fetch from 'node-fetch'
 import { getUrl } from "../utils/HttpUtil"
+import { RouteObject } from "../objects/RouteObject"
 
 const { Content } = Layout;
 
 export default function Index(props) {
 
-    const routeCards = props.routes.map(r =>
+    const routes = props.routes.map(r => new RouteObject(r))
+
+    const routeCards = routes.map(r =>
         <Col span={6} md={6} sm={12} xs={24} key={r.rid}>
-            <RouteCard route={r}/>
+            <RoutePreview route={r}/>
         </Col>
     );
     return (

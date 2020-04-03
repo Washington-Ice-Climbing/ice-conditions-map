@@ -1,38 +1,32 @@
 export const routes = [
     {
         "rid": "superalpine",
-        "title": "Superalpine, Sloan Peak",
-        "subtitle": "WI3-4, 1000'",
-        "stars": 4
+        "name": "Superalpine",
+        "peak": "Sloan Peak",
+        "region": "Mountain Loop",
+        "grade": "WI3-4",
+        "length": "1000'",
+        "difficulty": "Moderate",
+        "stars": 4,
+        "commitment": "Moderate",
+        "avalanche": "High",
+        "approach": "4-6 hours",
+        "season": "December - March",
+        "fa": "Porter McMichael, Kyle McCrohan, Tavish Hansen, February 2020"
     },
     {
         "rid": "hot-tubbs",
-        "title": "Hot Tubbs, Bryant Peak",
-        "subtitle": "WI4-, 500'",
-        "stars" : 2
-    },
-    {
-        "rid": "cosley-houston",
-        "title": "Cosley-Houston, Colfax Peak",
-        "subtitle": "WI4+, 700'",
-        "stars": 4
-    },
-    {
-        "rid": "nw-couloir-eldorado",
-        "title": "NW Ice Couloir, Eldorado Peak",
-        "subtitle": "WI3, 1000'",
-        "stars": 3
-    },
-    {
-        "rid": "triple-couloirs",
-        "title": "Triple Couloirs, Dragontail Peak",
-        "subtitle": "WI3 M3, 2000'",
-        "stars": 3
-    },
-    {
-        "rid": "ice-cliff",
-        "title": "Ice Cliff Glacier, Mt. Stuart",
-        "subtitle": "AI2, 2000'",
-        "stars": 1
+        "name": "Hot Tubbs",
+        "peak": "Bryant Peak",
+        "region": "I90",
+        "grade": "WI4",
+        "length": "500'",
+        "difficulty": "Easy",
+        "stars": 2,
+        "commitment": "Low",
+        "avalanche": "Moderate",
+        "approach": "2-3 hours",
+        "season": "January - March",
+        "fa": "Jacob Krantz, Kyle McCrohan, January 2019"
     }
 ]

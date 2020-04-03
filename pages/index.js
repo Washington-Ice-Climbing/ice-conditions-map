@@ -43,7 +43,7 @@ export default function Index(props) {
 
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const response = await fetch(getUrl('api/routes'))
     const routes = await response.json()
     return { props: { routes : routes } }

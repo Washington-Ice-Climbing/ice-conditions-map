@@ -12,7 +12,8 @@ export const routes = [
         "avalanche": "High",
         "approach": "4-6 hours",
         "season": "December - March",
-        "fa": "Porter McMichael, Kyle McCrohan, Tavish Hansen, February 2020"
+        "fa": "Porter McMichael, Kyle McCrohan, Tavish Hansen, February 2020",
+        "map": "https://caltopo.com/m/VELL"
     },
     {
         "rid": "hot-tubbs",
@@ -27,6 +28,7 @@ export const routes = [
         "avalanche": "Moderate",
         "approach": "2-3 hours",
         "season": "January - March",
-        "fa": "Jacob Krantz, Kyle McCrohan, January 2019"
+        "fa": "Jacob Krantz, Kyle McCrohan, January 2019",
+        "map": "https://caltopo.com/m/VELL"
     }
 ]

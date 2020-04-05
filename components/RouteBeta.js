@@ -1,4 +1,5 @@
 import { Tabs, Card } from 'antd';
+import Iframe from 'react-iframe'
 
 const { TabPane } = Tabs;
 
@@ -22,7 +23,14 @@ export default function RouteBeta({route}) {
                     <div dangerouslySetInnerHTML={{__html: route.content.beta.conditions}}/>
                 </TabPane>
                 <TabPane tab="Topos" key="6">
-                    Maps and route topos comning soon.
+                    <p>Map may take time to load. Try refreshing if it doesn't not load quickly.</p>
+                    <Iframe
+                        url={route.map}
+                        width="450px"
+                        height="450px"
+                        display="initial"
+                        position="relative"
+                    />
                 </TabPane>
             </Tabs>
         </Card>

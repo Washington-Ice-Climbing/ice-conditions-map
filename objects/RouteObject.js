@@ -16,6 +16,7 @@ export class RouteObject {
         this.coverImg = json.coverImg;
         this.content = json.content;
         this.imgs = json.imgs;
+        this.map = json.map;
     }
 
     getTitle() {

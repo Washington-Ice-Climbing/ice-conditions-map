@@ -31,6 +31,7 @@
     "now": "^17.1.1",
     "null-loader": "^3.0.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-iframe": "^1.8.0"
   }
 }

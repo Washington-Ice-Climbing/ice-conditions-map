@@ -17,6 +17,7 @@ export class RouteObject {
         this.content = json.content;
         this.imgs = json.imgs;
         this.map = json.map;
+        this.topoImg = json.topoImg;
     }
 
     getTitle() {

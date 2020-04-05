@@ -50,6 +50,7 @@ To add a new route:
 2. Create the folder  `public/routes/<rid>`.
     - Inside, create a `imgs` folder (note all photos must be square):
         - Add a `cover.jpg`. This is the cover image on the routes screen.
+        - Add a `topo.jpg`. This is the topo image on the topos tab.
         - Add any more photos you want. These will be displayed on the carousel.
     - Create html content files:
         - `intro.html`
@@ -58,6 +59,7 @@ To add a new route:
         - `descent.html`
         - `gear.html`
         - `conditions.html`
+        - `strategy.html`
         - `history.html`
         - `links.html`
         - `story.html` (optional)

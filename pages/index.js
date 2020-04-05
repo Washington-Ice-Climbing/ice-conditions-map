@@ -3,6 +3,7 @@ import "../style.less";
 import Topbar from "../components/Topbar";
 import PageFooter from "../components/Footer";
 import React from "react";
+import Link from "next/link";
 import RoutePreview from "../components/RoutePreview";
 import RouteSelectionSidebar from "../components/RouteSelectionSidebar";
 import {getRoutes} from "../utils/RouteUtil";
@@ -26,7 +27,7 @@ export default function Index(params) {
                 <Layout className="site-layout">
                     <Content style={{ margin: '0 16px' }}>
                         <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
+                            <Breadcrumb.Item><Link href="/"><a>Home</a></Link></Breadcrumb.Item>
                             <Breadcrumb.Item>Routes</Breadcrumb.Item>
                         </Breadcrumb>
                         <Row gutter={16}>

@@ -1,4 +1,4 @@
-import { Tabs, Card } from 'antd';
+import { Tabs, Card, Row, Col } from 'antd';
 import Iframe from 'react-iframe'
 
 const { TabPane } = Tabs;
@@ -6,31 +6,60 @@ const { TabPane } = Tabs;
 export default function RouteBeta({route}) {
     return (
         <Card style={{margin: "8px 0px"}}>
-            <Tabs defaultActiveKey="2" onChange={key => console.log(key)}>
+            <Tabs defaultActiveKey="1">
                 <TabPane tab="Approach" key="1">
-                    <div dangerouslySetInnerHTML={{__html: route.content.beta.approach}}/>
+                    <Row gutter={16}>
+                        <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                            <h3>Approach</h3>
+                            <div dangerouslySetInnerHTML={{__html: route.content.beta.approach}}/>
+                        </Col>
+                        <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}} >
+                            <h3>Map</h3>
+                            <p>
+                                <a href={route.map} target="_blank"> Open map in new tab.</a>
+                            </p>
+                            {/*<div style={{width: "100%", height: "100%", border: "1px solid red"}}>*/}
+                                <Iframe
+                                    url={route.map}
+                                    width="100%"
+                                    height="350px"  // Struggling to get this to work with 100%
+                                    display="initial"
+                                    position="relative"
+                                    // styles={{height: "400px"}}
+                                />
+                            {/*</div>*/}
+                        </Col>
+                        <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                            <h3>Descent</h3>
+                            <div dangerouslySetInnerHTML={{__html: route.content.beta.descent}}/>
+                        </Col>
+                    </Row>
                 </TabPane>
                 <TabPane tab="Climb" key="2">
-                    <div dangerouslySetInnerHTML={{__html: route.content.beta.climb}}/>
+                    <Row gutter={16}>
+                        <Col span={16} md={16} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                            <div dangerouslySetInnerHTML={{__html: route.content.beta.climb}}/>
+                        </Col>
+                        <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                            <img src={route.topoImg} style={{width: "100%"}}/>
+                        </Col>
+                    </Row>
                 </TabPane>
-                <TabPane tab="Descent" key="3">
-                    <div dangerouslySetInnerHTML={{__html: route.content.beta.descent}}/>
-                </TabPane>
-                <TabPane tab="Gear" key="4">
-                    <div dangerouslySetInnerHTML={{__html: route.content.beta.gear}}/>
-                </TabPane>
-                <TabPane tab="Conditions" key="5">
-                    <div dangerouslySetInnerHTML={{__html: route.content.beta.conditions}}/>
-                </TabPane>
-                <TabPane tab="Topos" key="6">
-                    <p>Map may take time to load. Try refreshing if it doesn't not load quickly.</p>
-                    <Iframe
-                        url={route.map}
-                        width="450px"
-                        height="450px"
-                        display="initial"
-                        position="relative"
-                    />
+                <TabPane tab="Beta" key="3">
+                    <Row gutter={16}>
+                        <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                            <h3>Gear</h3>
+                            <div dangerouslySetInnerHTML={{__html: route.content.beta.gear}}/>
+                        </Col>
+                        <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}} >
+                            <h3>Conditions</h3>
+                            <div dangerouslySetInnerHTML={{__html: route.content.beta.conditions}}/>
+                        </Col>
+                        <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                            <h3>Strategy</h3>
+                            <div dangerouslySetInnerHTML={{__html: route.content.beta.strategy}}/>
+                        </Col>
+                    </Row>
                 </TabPane>
             </Tabs>
         </Card>

@@ -1,5 +1,6 @@
 import Topbar from "../../components/Topbar";
 import Router from 'next/router'
+import Link from "next/link";
 import { Layout, Breadcrumb, Col, Row} from "antd";
 import PageFooter from "../../components/Footer";
 import RouteStats from "../../components/RouteStats";
@@ -12,43 +13,58 @@ import { RouteObject } from "../../objects/RouteObject"
 import fs from 'fs'
 import path from 'path'
 import { getRoutes} from "../../utils/RouteUtil";
+import RouteStory from "../../components/RouteStory";
 
 const { Content } = Layout;
 
 export default function Route({data}) {
 
     const route = new RouteObject(data)
+    const extras = route.content.extra.story == null ?
+        (<Row gutter={16} style={{paddingBottom: '8px'}}>
+            <Col span={16} md={16} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                <RouteHistory route={route}/>
+            </Col>
+            <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                <RouteLinks route={route}/>
+            </Col>
+        </Row>) :
+        (<Row gutter={16} style={{paddingBottom: '8px'}}>
+            <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                <RouteHistory route={route}/>
+            </Col>
+            <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                <RouteStory route={route}/>
+            </Col>
+            <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
+                <RouteLinks route={route}/>
+            </Col>
+        </Row>);
+
     return (
         <div>
             <Topbar onBack={() => Router.back()} title={route.name} subTitle={route.peak}/>
             <Layout style={{paddingTop: '64px'}} className="site-layout">
                 <Content style={{ margin: '0 16px' }}>
-                    <Breadcrumb style={{ margin: '16px 0' }}>
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>Routes</Breadcrumb.Item>
+                    <Breadcrumb style={{ margin: '16px 0' }} key="home">
+                        <Breadcrumb.Item><Link href="/"><a>Home</a></Link></Breadcrumb.Item>
+                        <Breadcrumb.Item><Link href="/"><a>Routes</a></Link></Breadcrumb.Item>
                         <Breadcrumb.Item>{route.name}</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content style={{padding: '10px', maxWidth: '1500px', margin: '0 auto'}}>
                         <Row gutter={16}>
-                            <Col span={8} md={8} sm={12} xs={24} style={{margin: '8px 0px'}}>
+                            <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
                                 <RouteStats route={route}/>
                             </Col>
-                            <Col span={8} md={8} sm={12} xs={24} style={{margin: '8px 0px'}}>
+                            <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
                                 <RouteIntro route={route}/>
                             </Col>
-                            <Col span={8} md={8} sm={12} xs={24} style={{margin: '8px 0px'}}>
+                            <Col span={8} md={8} sm={24} xs={24} style={{margin: '8px 0px'}}>
                                 <RoutePhotos route={route}/>
                             </Col>
                         </Row>
                         <RouteBeta route={route}/>
-                        <Row gutter={16} style={{paddingBottom: '8px'}}>
-                            <Col span={16} md={16} sm={16} xs={24} style={{margin: '8px 0px'}}>
-                                <RouteHistory route={route}/>
-                            </Col>
-                            <Col span={8} md={8} sm={8} xs={24} style={{margin: '8px 0px'}}>
-                                <RouteLinks route={route}/>
-                            </Col>
-                        </Row>
+                        {extras}
                     </Content>
                 </Content>
                 <PageFooter/>
@@ -73,7 +89,8 @@ export async function getStaticProps({ params }) {
             climb: fs.readFileSync(path.join(routeDir, 'climb.html'), 'utf8'),
             descent: fs.readFileSync(path.join(routeDir, 'descent.html'), 'utf8'),
             gear: fs.readFileSync(path.join(routeDir, 'gear.html'), 'utf8'),
-            conditions: fs.readFileSync(path.join(routeDir, 'conditions.html'), 'utf8')
+            conditions: fs.readFileSync(path.join(routeDir, 'conditions.html'), 'utf8'),
+            strategy: fs.readFileSync(path.join(routeDir, 'strategy.html'), 'utf8')
         },
         extra: {
             history: fs.readFileSync(path.join(routeDir, 'history.html'), 'utf8'),

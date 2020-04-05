@@ -1,59 +1,69 @@
 import {Layout, Menu} from 'antd';
 import {Component} from "react";
-import {TeamOutlined, UserOutlined,} from '@ant-design/icons';
+import {DotChartOutlined, HeatMapOutlined, CloseOutlined} from '@ant-design/icons';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 export default class RouteSelectionSidebar extends Component {
-    constructor() {
-        super();
-        this.state = {
-            collapsed: true,
-        }
+
+    state = {
+        collapsed: true
     }
 
     onCollapse = collapsed => {
         this.setState({ collapsed });
     };
 
+    onSelect = ({key, item}) => {
+        const subMenu = item.props.subMenuKey;
+        if (key === "clear")
+            this.props.clearFilters()
+        else if (subMenu === "difficulty-menu-")
+            this.props.filterDifficulty(key)
+        else if (subMenu === "region-menu-")
+            this.props.filterRegion(key)
+    }
+
     render() {
+        const regionItems = this.props.regionKeys.map(k =>
+            <Menu.Item key={k}>{k}</Menu.Item>
+        )
+        const difficultyItems = this.props.difficultyKeys.map(k =>
+            <Menu.Item key={k}>{k}</Menu.Item>
+        )
         return (
             <Sider
                 collapsible
                 collapsed={this.state.collapsed}
                 onCollapse={this.onCollapse}>
                 <div className="logo" />
-                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-
+                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" onSelect={this.onSelect}>
+                    <Menu.Item key="clear">
+                        <CloseOutlined />
+                        <span>Clear Filter</span>
+                    </Menu.Item>
                     <SubMenu
-                        key="sub1"
+                        key="region"
                         title={
                             <span>
-                                    <UserOutlined />
-                                    <span>Region</span>
-                                </span>
+                                <DotChartOutlined />
+                                <span>Region</span>
+                            </span>
                         }
                     >
-                        <Menu.Item key="1">Highway 20</Menu.Item>
-                        <Menu.Item key="2">US 2</Menu.Item>
-                        <Menu.Item key="3">I90</Menu.Item>
-                        <Menu.Item key="4">Highway 542</Menu.Item>
-                        <Menu.Item key="5">Mt. Rainier</Menu.Item>
-                        <Menu.Item key="6">Mt. Hood</Menu.Item>
+                        {regionItems}
                     </SubMenu>
                     <SubMenu
-                        key="sub2"
+                        key="difficulty"
                         title={
                             <span>
-                                    <TeamOutlined />
-                                    <span>Difficulty</span>
-                                </span>
+                                <HeatMapOutlined />
+                                <span>Difficulty</span>
+                            </span>
                         }
                     >
-                        <Menu.Item key="7">Easy</Menu.Item>
-                        <Menu.Item key="8">Medium</Menu.Item>
-                        <Menu.Item key="9">Hard</Menu.Item>
+                        {difficultyItems}
                     </SubMenu>
                 </Menu>
             </Sider>

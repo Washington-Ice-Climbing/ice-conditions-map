@@ -44,10 +44,10 @@ now --prod
 
 ## Routes
 To add a new route:
-1. Add a route object to the array in `static/routes/routes.js`.
+1. Add a route object to the array in `public/routes/routes.js`.
     - `rid` is the name of the folder that will hold assets for this route.
     - Copy the json structure for the rest of the object. Populate data correctly.
-2. Create the folder  `static/routes/<rid>`.
+2. Create the folder  `public/routes/<rid>`.
     - Inside, create a `imgs` folder (note all photos must be square):
         - Add a `cover.jpg`. This is the cover image on the routes screen.
         - Add any more photos you want. These will be displayed on the carousel.

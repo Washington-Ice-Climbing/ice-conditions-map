@@ -11,8 +11,7 @@ import RoutePhotos from "../../components/RoutePhotos";
 import { RouteObject } from "../../objects/RouteObject"
 import fs from 'fs'
 import path from 'path'
-import { routes } from '../../static/routes/routes'
-import { addRouteLinks } from "../../utils/RouteUtil";
+import { getRoutes} from "../../utils/RouteUtil";
 
 const { Content } = Layout;
 
@@ -60,8 +59,7 @@ export default function Route({data}) {
 
 // Props created at build time for static rendering.
 export async function getStaticProps({ params }) {
-    const filtered = routes.filter(r => params.rid === r.rid)
-    const route = addRouteLinks(filtered[0])
+    const route = getRoutes().filter(r => params.rid === r.rid)[0]
     const routeDir = path.join(process.cwd(), route.routeDir)
 
     // can have a story or not
@@ -84,7 +82,7 @@ export async function getStaticProps({ params }) {
         }
     }
 
-    route.imgs = fs.readdirSync(path.join(routeDir, 'imgs')).map(f => path.join(route.routeDir, "imgs", f))
+    route.imgs = fs.readdirSync(path.join(routeDir, 'imgs')).map(f => path.join(route.imgDir, "imgs", f))
 
     return {
         props: {data: route}
@@ -94,7 +92,7 @@ export async function getStaticProps({ params }) {
 // Define which paths will be statically build at build time.
 export async function getStaticPaths() {
     return {
-        paths: routes.map(r => ({ params: { rid: r.rid } })),
+        paths: getRoutes().map(r => ({ params: { rid: r.rid } })),
         fallback: false // show 404 error if route page not found
     };
 }

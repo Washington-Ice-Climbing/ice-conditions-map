@@ -5,9 +5,9 @@ import PageFooter from "../components/Footer";
 import React from "react";
 import RoutePreview from "../components/RoutePreview";
 import RouteSelectionSidebar from "../components/RouteSelectionSidebar";
-import fetch from 'node-fetch'
-import { getUrl } from "../utils/HttpUtil"
 import { RouteObject } from "../objects/RouteObject"
+import { routes } from '../static/routes/routes'
+import { addRouteLinks } from "../utils/RouteUtil";
 
 const { Content } = Layout;
 
@@ -44,8 +44,9 @@ export default function Index(props) {
 }
 
 export async function getStaticProps() {
-    const response = await fetch(getUrl('api/routes'))
-    const routes = await response.json()
-    return { props: { routes : routes } }
+    // const response = await fetch(getUrl('api/routes'))
+    // const routes = await response.json()
+
+    return { props: { routes : routes.map(r => addRouteLinks(r)) } }
 }
 

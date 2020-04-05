@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function RoutePreview(props) {
     const route = props.route
     return (
-        <Link href="/routes/[slug]" as={`/routes/${route.rid}`}>
+        <Link href="/routes/[rid]" as={`/routes/${route.rid}`}>
             <Card
                 hoverable
                 cover={

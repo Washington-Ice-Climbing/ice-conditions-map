@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import Topbar from "../../components/Topbar";
 import Router from 'next/router'
 import { Layout, Breadcrumb, Col, Row} from "antd";
@@ -9,17 +8,16 @@ import RouteBeta from "../../components/RouteBeta";
 import RouteLinks from "../../components/RouteLinks";
 import RouteHistory from "../../components/RouteHistory";
 import RoutePhotos from "../../components/RoutePhotos";
-import { getUrl } from "../../utils/HttpUtil"
 import { RouteObject } from "../../objects/RouteObject"
 import fs from 'fs'
 import path from 'path'
 import { routes } from '../../static/routes/routes'
+import { addRouteLinks } from "../../utils/RouteUtil";
 
 const { Content } = Layout;
 
-export default function Route({data, status}) {
+export default function Route({data}) {
 
-    if (status != 200) return <p>{data.message}</p>;
     const route = new RouteObject(data)
     return (
         <div>
@@ -62,8 +60,8 @@ export default function Route({data, status}) {
 
 // Props created at build time for static rendering.
 export async function getStaticProps({ params }) {
-    const response = await fetch(getUrl(`api/routes/${params.rid}`))
-    const route = await response.json()
+    const filtered = routes.filter(r => params.rid === r.rid)
+    const route = addRouteLinks(filtered[0])
     const routeDir = path.join(process.cwd(), route.routeDir)
 
     // can have a story or not
@@ -89,7 +87,7 @@ export async function getStaticProps({ params }) {
     route.imgs = fs.readdirSync(path.join(routeDir, 'imgs')).map(f => path.join(route.routeDir, "imgs", f))
 
     return {
-        props: {data: route, status: response.status}
+        props: {data: route}
     }
 }
 

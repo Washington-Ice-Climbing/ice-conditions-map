@@ -17,8 +17,10 @@ export default class RouteSelectionSidebar extends Component {
 
     onSelect = ({key, item}) => {
         const subMenu = item.props.subMenuKey;
-        if (key === "clear")
+        if (key === "clear") {
             this.props.clearFilters()
+            this.setState({collapsed: true})
+        }
         else if (subMenu === "difficulty-menu-")
             this.props.filterDifficulty(key)
         else if (subMenu === "region-menu-")

@@ -16,7 +16,6 @@ export default function RoutePreview(props) {
                     <Card.Meta
                         title={route.getTitle()}
                         description={route.getSubtitle()}
-                        // avatar={<Avatar src="https://icon2.cleanpng.com/20180107/vdw/star-cliparts-5a51b114a5efb5.12680648151530318867979713.jpg" />}
                     />
                 </Card>
                 <Stars numStars={route.stars} style={{position: 'absolute', bottom: '30px', right: '30px', zIndex: '1'}}/>

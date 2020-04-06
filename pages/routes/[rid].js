@@ -1,5 +1,5 @@
 import Topbar from "../../components/Topbar";
-import Router from 'next/router'
+import Router from 'next/router';
 import Link from "next/link";
 import { Layout, Breadcrumb, Col, Row} from "antd";
 import PageFooter from "../../components/Footer";
@@ -45,10 +45,10 @@ export default function Route({data}) {
         <div>
             <Topbar onBack={() => Router.back()} title={route.name} subTitle={route.peak}/>
             <Layout style={{paddingTop: '64px'}} className="site-layout">
-                <Content style={{ margin: '0 16px' }}>
+                <Content style={{ padding: '0 16px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }} key="home">
                         <Breadcrumb.Item><Link href="/"><a>Home</a></Link></Breadcrumb.Item>
-                        <Breadcrumb.Item><Link href="/"><a>Routes</a></Link></Breadcrumb.Item>
+                        <Breadcrumb.Item><Link href="/routes"><a>Routes</a></Link></Breadcrumb.Item>
                         <Breadcrumb.Item>{route.name}</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content style={{padding: '10px', maxWidth: '1500px', margin: '0 auto'}}>

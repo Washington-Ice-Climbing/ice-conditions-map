@@ -1,17 +1,18 @@
 import {Breadcrumb, Col, Layout, Row} from 'antd';
-import Topbar from "../components/Topbar";
-import PageFooter from "../components/Footer";
+import Topbar from "../../components/Topbar";
+import PageFooter from "../../components/Footer";
 import React from "react";
 import Link from "next/link";
-import RoutePreview from "../components/RoutePreview";
-import RouteSelectionSidebar from "../components/RouteSelectionSidebar";
-import {getRoutes} from "../utils/RouteUtil";
-import {RouteObject} from "../objects/RouteObject";
+import RoutePreview from "../../components/RoutePreview";
+import RouteSelectionSidebar from "../../components/RouteSelectionSidebar";
+import {getRoutes} from "../../utils/RouteUtil";
+import {RouteObject} from "../../objects/RouteObject";
 import Router from 'next/router';
+import theme from '../../styles/theme'
 
 const { Content } = Layout;
 
-export default class Routes extends React.Component {
+export default class Index extends React.Component {
 
     constructor(props) {
         super(props)

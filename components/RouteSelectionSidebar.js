@@ -37,10 +37,11 @@ export default class RouteSelectionSidebar extends Component {
         return (
             <Sider
                 collapsible
+                theme='light'
                 collapsed={this.state.collapsed}
                 onCollapse={this.onCollapse}>
                 <div className="logo" />
-                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" onSelect={this.onSelect}>
+                <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" onSelect={this.onSelect}>
                     <Menu.Item key="clear">
                         <CloseOutlined />
                         <span>Clear Filter</span>

@@ -7,6 +7,27 @@ Install dependencies:
 ```.env
 npm install
 ```
+### Mapbox API Key
+Next, specify the development Mapbox API Key. You will need to contact
+Kyle to get this key, or you can create your own Mapbox account and use your own key for free.
+```.env
+export MAPBOX_API_KEY=<key>
+```
+I find it helpful to put these export commands in a file `.env` (excluded in the `.gitignore`).
+Then, each time you need to populate your env vars, just run:
+```.env
+source .env
+```
+
+#### Admin Only
+To change the api key uploaded to `now`:
+```.env
+now secrets rm mapbox-api-key
+now secrets add mapbox-api-key <key>
+```
+
+### Launch the app
+
 Run the app:
 ```.env
 npm run dev

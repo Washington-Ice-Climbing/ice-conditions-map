@@ -30,4 +30,6 @@ yarn-error.log*
 
 .now
 
+.env
+
 package-lock.json

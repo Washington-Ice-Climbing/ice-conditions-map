@@ -1,4 +1,4 @@
-import { Card, Avatar } from "antd";
+import { Card } from "antd";
 import Link from "next/link";
 import Stars from "./Stars";
 
@@ -10,7 +10,9 @@ export default function RoutePreview(props) {
                 <Card
                     hoverable
                     cover={
-                        <img alt="image1" style={{ width: '100%', height: '100%' }} src={route.coverImg} />
+                        //<div style={{paddingBottom: '90%', height: '0px', display: 'block'}}>
+                        <img alt="image1" style={{  width: '100%', height: '100%' }} src={route.coverImg} />
+                        // </div>
                     }
                     style={{marginTop: '8px', marginBottom: '8px'}}>
                     <Card.Meta

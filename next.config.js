@@ -1,12 +1,17 @@
 const withLess = require('@zeit/next-less')
+const withCSS = require('@zeit/next-css')
+
 
 module.exports = () => {
-    return withLess({
+    return withLess(withCSS({
         lessLoaderOptions: {
             modifyVars: {
                 'primary-color': '#F7882F',
             },
             javascriptEnabled: true,
+        },
+        env: {
+            MAPBOX_API_KEY: process.env.MAPBOX_API_KEY
         },
         webpack: (config, { isServer }) => {
             if (isServer) {
@@ -23,7 +28,6 @@ module.exports = () => {
                     },
                     ...(typeof origExternals[0] === 'function' ? [] : origExternals),
                 ]
-
                 config.module.rules.unshift({
                     test: antStyles,
                     use: 'null-loader',
@@ -31,5 +35,5 @@ module.exports = () => {
             }
             return config
         },
-    })
+    }))
 }

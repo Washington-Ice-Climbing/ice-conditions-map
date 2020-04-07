@@ -1,14 +1,15 @@
 import {Layout, Typography, Button, Divider, Row, Col, Avatar} from 'antd';
 import Topbar from "../components/Topbar";
 import PageFooter from "../components/Footer";
-import Link from 'next/link';
 import theme from '../styles/theme';
 import FeatureCard from "../components/FeatureCard";
+import { useRouter } from 'next/router';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
 export default function Index() {
+    const router = useRouter()
     return (
         <div>
             {/*<Topbar title="WA Ice" subTitle="The Elusive Beast"/>*/}
@@ -24,12 +25,16 @@ export default function Index() {
                             Beta, community, and inspiration for ice climbing in the Evergreen State. Sharpen your tools. The hunt is on.
                         </p>
                         <div style={{margin: "30px"}}>
-                            <Link href="/routes">
-                                <Button size="large" style={{width: "200px", margin: "10px", backgroundColor: theme.colors.accent}}>
-                                    Browse Routes
-                                </Button>
-                            </Link>
-                            <Button size="large" style={{width: "200px", margin: "10px"}}>
+                            <Button
+                                size="large"
+                                style={{width: "200px", margin: "10px", backgroundColor: theme.colors.accent}}
+                                onClick={() => router.push("/routes")}>
+                                Browse Routes
+                            </Button>
+                            <Button
+                                size="large"
+                                style={{width: "200px", margin: "10px"}}
+                                onClick={() => router.push("/map")}>
                                 View Map
                             </Button>
                         </div>
@@ -125,7 +130,7 @@ export default function Index() {
                                         <Title>Can I Contribute?</Title>
                                         <p>
                                             It takes a community to put together a guide like this. If you have route beta,
-                                            photos, or stories please email (insert email here) to help out. We are always
+                                            photos, or stories please email <a>washingtonice1@gmail.com</a> to help out. We are always
                                             looking for more routes to include, so please send them our way!
                                         </p>
                                         <p>
@@ -135,7 +140,7 @@ export default function Index() {
                                         </p>
                                     </div>
                                 </Col>
-                                <Col span={12} lg={12} md={12} sm={24} xs={24} key="1">
+                                <Col span={12} lg={12} md={12} sm={24} xs={24} key="2">
                                     <div className="textBlock">
                                         <Title>Contributors</Title>
                                         {/*<p>Thank you to all our contributors:</p>*/}

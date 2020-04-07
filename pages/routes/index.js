@@ -1,4 +1,4 @@
-import {Breadcrumb, Col, Layout, Row} from 'antd';
+import {Breadcrumb, Col, Layout, Row, Button} from 'antd';
 import Topbar from "../../components/Topbar";
 import PageFooter from "../../components/Footer";
 import React from "react";
@@ -8,7 +8,7 @@ import RouteSelectionSidebar from "../../components/RouteSelectionSidebar";
 import {getRoutes} from "../../utils/RouteUtil";
 import {RouteObject} from "../../objects/RouteObject";
 import Router from 'next/router';
-import theme from '../../styles/theme'
+import theme from '../../styles/theme';
 
 const { Content } = Layout;
 
@@ -43,7 +43,15 @@ export default class Index extends React.Component {
         );
         return (
             <div>
-                <Topbar onBack={() => Router.back()} title="WA Ice" subTitle="The Elusive Beast"/>
+                <Topbar
+                    onBack={() => Router.back()}
+                    extra={[
+                        <Button key="1" style={{backgroundColor: theme.colors.accent}} onClick={() => Router.push("/map")}>
+                            View Map
+                        </Button>,
+                    ]}
+                    title="WA Ice"
+                    subTitle="The Elusive Beast"/>
                 <Layout style={{paddingTop: '64px', minHeight: '100vh'}}>
                     <RouteSelectionSidebar
                         regionKeys={this.regionKeys}

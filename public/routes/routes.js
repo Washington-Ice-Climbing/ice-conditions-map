@@ -13,7 +13,9 @@ export const routes = [
         "approach": "4-6 hours",
         "season": "December - March",
         "fa": "Porter McMichael, Kyle McCrohan, Tavish Hansen, February 2020",
-        "map": "https://caltopo.com/m/VELL"
+        "map": "https://caltopo.com/m/VELL",
+        "coordinates":[-121.34011,48.0415],
+        "contributor":"KM"
     },
     {
         "rid": "hot-tubbs",
@@ -29,6 +31,8 @@ export const routes = [
         "approach": "2-3 hours",
         "season": "January - March",
         "fa": "Jacob Krantz, Kyle McCrohan, January 2019",
-        "map": "https://caltopo.com/m/VELL"
+        "map": "https://caltopo.com/m/VELL",
+        "coordinates":[-121.46065,47.45122],
+        "contributor":"KM"
     }
 ]

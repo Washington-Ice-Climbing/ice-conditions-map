@@ -1,4 +1,4 @@
-import {Breadcrumb, Col, Layout, Row, Button} from 'antd';
+import {Breadcrumb, Col, Layout, Row, Menu} from 'antd';
 import Topbar from "../../components/Topbar";
 import PageFooter from "../../components/Footer";
 import React from "react";
@@ -8,7 +8,17 @@ import RouteSelectionSidebar from "../../components/RouteSelectionSidebar";
 import {getRoutes} from "../../utils/RouteUtil";
 import {RouteObject} from "../../objects/RouteObject";
 import Router from 'next/router';
-import theme from '../../styles/theme';
+import MoreDropdown from "../../components/MoreDropdown";
+
+const dropdownMenu = (
+    <Menu>
+        <Menu.Item key="1">
+            <Link href="/map" as={`/map`}>
+                <a>View Map</a>
+            </Link>
+        </Menu.Item>
+    </Menu>
+)
 
 const { Content } = Layout;
 
@@ -46,9 +56,7 @@ export default class Index extends React.Component {
                 <Topbar
                     onBack={() => Router.back()}
                     extra={[
-                        <Button key="1" style={{backgroundColor: theme.colors.accent}} onClick={() => Router.push("/map")}>
-                            View Map
-                        </Button>,
+                        <MoreDropdown key="1" menu={dropdownMenu}/>
                     ]}
                     title="WA Ice"
                     subTitle="The Elusive Beast"/>

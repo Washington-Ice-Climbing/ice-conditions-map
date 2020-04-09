@@ -18,6 +18,8 @@ export class RouteObject {
         this.imgs = json.imgs;
         this.map = json.map;
         this.topoImg = json.topoImg;
+        this.coordinates = json.coordinates;
+        this.contributor = json.contributor;
     }
 
     getTitle() {

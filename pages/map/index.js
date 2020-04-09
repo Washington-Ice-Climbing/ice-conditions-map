@@ -1,13 +1,25 @@
-import { Button } from 'antd';
+import { Menu } from 'antd';
 import Topbar from "../../components/Topbar";
 import React from "react";
 import {getRoutes} from "../../utils/RouteUtil";
 import {RouteObject} from "../../objects/RouteObject";
 import Router from 'next/router';
 import theme from '../../styles/theme';
+import Link from "next/link";
 import dynamic from 'next/dynamic';
+import MoreDropdown from "../../components/MoreDropdown";
 
 const Map = dynamic(() => import('../../components/Map'),  { ssr: false })
+
+const dropdownMenu = (
+    <Menu>
+        <Menu.Item key="1">
+            <Link href="/routes" as={`/routes`}>
+                <a>Browse Routes</a>
+            </Link>
+        </Menu.Item>
+    </Menu>
+)
 
 export default class Index extends React.Component {
 
@@ -18,19 +30,16 @@ export default class Index extends React.Component {
     }
 
     render() {
-
         return (
             <div>
                 <Topbar
                     onBack={() => Router.back()}
                     extra={[
-                        <Button key="1" style={{backgroundColor: theme.colors.accent}} onClick={() => Router.push("/routes")}>
-                            Browse Routes
-                        </Button>,
+                        <MoreDropdown key="1" menu={dropdownMenu}/>
                     ]}
                     title="WA Ice"
                     subTitle="The Elusive Beast"/>
-                <Map/>
+                <Map routes={this.routes}/>
             </div>
         )
     }

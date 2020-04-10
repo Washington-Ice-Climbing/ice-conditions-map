@@ -5,7 +5,7 @@ import React from "react";
 import Link from "next/link";
 import RoutePreview from "../../components/RoutePreview";
 import RouteSelectionSidebar from "../../components/RouteSelectionSidebar";
-import {getRoutes} from "../../utils/RouteUtil";
+import {getRoutes} from "../../utils/DataLoader";
 import {RouteObject} from "../../objects/RouteObject";
 import Router from 'next/router';
 import MoreDropdown from "../../components/MoreDropdown";

@@ -1,7 +1,7 @@
 import { Menu } from 'antd';
 import Topbar from "../../components/Topbar";
 import React from "react";
-import {getRoutes} from "../../utils/RouteUtil";
+import {getRoutes} from "../../utils/DataLoader";
 import {RouteObject} from "../../objects/RouteObject";
 import Router from 'next/router';
 import theme from '../../styles/theme';

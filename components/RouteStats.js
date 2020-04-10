@@ -18,6 +18,7 @@ export default function RouteStats({route}) {
                 <p><b>Region</b>: {route.region}</p>
                 <p><b>Season</b>: {route.season}</p>
                 <p><b>FA</b>: {route.fa}</p>
+                <p>{route.contributor.getAvatar('large')}  <i>Contributed by {route.contributor.name}</i></p>
             </Content>
         </Card>
     )

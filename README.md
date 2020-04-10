@@ -84,6 +84,13 @@ To add a new route:
         - `history.html`
         - `links.html`
         - `story.html` (optional)
+        
+## Contributors
+Routes link to a "contributor". To add a new contributor:
+1. Add a new object to the array in `public/contributors/contributors.js`
+- `cid` should match the contributor in the corresponding route objects.
+- optionally add an image to the folder and link it. If no image is provided, the avatar
+will just be the `cid` in text.
 
 ## Technologies used
 This [setup guide](https://levelup.gitconnected.com/lets-create-a-project-with-nextjs-antd-and-deploy-with-now-sh-e38772348312) 

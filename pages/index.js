@@ -1,15 +1,28 @@
-import {Layout, Typography, Button, Divider, Row, Col, Avatar} from 'antd';
+import {Layout, Typography, Button, Divider, Row, Col, Collapse} from 'antd';
 import Topbar from "../components/Topbar";
 import PageFooter from "../components/Footer";
 import theme from '../styles/theme';
 import FeatureCard from "../components/FeatureCard";
 import { useRouter } from 'next/router';
+import { getContributors } from "../utils/DataLoader";
+import {ContributorObject} from "../objects/ContributorObject";
+import React from "react";
 
 const { Content } = Layout;
 const { Title } = Typography;
+const { Panel } = Collapse;
 
-export default function Index() {
+export default function Index({contributors}) {
     const router = useRouter()
+    const contributorObjects = contributors.map(c => new ContributorObject(c))
+    const contributorElements = contributorObjects.map(c =>
+        <Panel header={c.name} key={c.cid}>
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+                <div style={{flexGrow: '1', margin: '10px'}}>{c.getAvatar(80)}</div>
+                <div style={{flexGrow: '2', margin: '10px'}}>{c.blurb}</div>
+            </div>
+        </Panel>
+    );
     return (
         <div>
             {/*<Topbar title="WA Ice" subTitle="The Elusive Beast"/>*/}
@@ -143,13 +156,9 @@ export default function Index() {
                                 <Col span={12} lg={12} md={12} sm={24} xs={24} key="2">
                                     <div className="textBlock">
                                         <Title>Contributors</Title>
-                                        {/*<p>Thank you to all our contributors:</p>*/}
-                                        {/*<ul>*/}
-                                        {/*    <li>Kyle McCrohan (beta, development, organization)</li>*/}
-                                        {/*    <li>Daniel Smith (beta, organization)</li>*/}
-                                        {/*</ul>*/}
-                                        <p><Avatar style={{backgroundColor: theme.colors.link}}>KM</Avatar> Kyle McCrohan</p>
-                                        <p><Avatar style={{backgroundColor: theme.colors.link}}>DM</Avatar> Daniel Smith</p>
+                                        <Collapse accordion>
+                                            {contributorElements}
+                                        </Collapse>
                                     </div>
                                 </Col>
                                 <style jsx>{`
@@ -176,4 +185,8 @@ export default function Index() {
             </Layout>
         </div>
     )
+}
+
+export async function getStaticProps() {
+    return { props: { contributors : getContributors() } }
 }

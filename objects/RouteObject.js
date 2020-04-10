@@ -1,3 +1,6 @@
+import {ContributorObject} from "./ContributorObject";
+import {contributors} from "../public/contributors/contributors";
+
 export class RouteObject {
     constructor(json) {
         this.rid = json.rid;
@@ -19,7 +22,7 @@ export class RouteObject {
         this.map = json.map;
         this.topoImg = json.topoImg;
         this.coordinates = json.coordinates;
-        this.contributor = json.contributor;
+        this.contributor = new ContributorObject(contributors.filter(c => c.cid === json.contributor)[0]);
     }
 
     getTitle() {

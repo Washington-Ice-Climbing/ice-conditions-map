@@ -1,7 +1,12 @@
 import { routes } from '../public/routes/routes'
+import { contributors } from "../public/contributors/contributors";
 
 export function getRoutes() {
-    return routes.map(r => addRouteLinks(r))
+    return routes.map(r => addRouteLinks(r));
+}
+
+export function getContributors() {
+    return contributors;
 }
 
 function addRouteLinks(route) {

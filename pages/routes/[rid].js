@@ -12,7 +12,7 @@ import RoutePhotos from "../../components/RoutePhotos";
 import { RouteObject } from "../../objects/RouteObject"
 import fs from 'fs'
 import path from 'path'
-import { getRoutes} from "../../utils/RouteUtil";
+import { getRoutes} from "../../utils/DataLoader";
 import RouteStory from "../../components/RouteStory";
 
 const { Content } = Layout;

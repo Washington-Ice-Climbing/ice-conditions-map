@@ -17,9 +17,9 @@ export default function Index({contributors}) {
     const contributorObjects = contributors.map(c => new ContributorObject(c))
     const contributorElements = contributorObjects.map(c =>
         <Panel header={c.name} key={c.cid}>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
+            <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
                 <div style={{flexGrow: '0', margin: '10px'}}>{c.getAvatar(90)}</div>
-                <div style={{flexGrow: '1', margin: '10px'}}>{c.blurb}</div>
+                <div style={{flexGrow: '1', margin: '10px', flexBasis: '250px', flexShrink: '0'}}>{c.blurb}</div>
             </div>
         </Panel>
     );

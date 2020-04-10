@@ -17,8 +17,11 @@ export default function RouteStats({route}) {
                 <p><b>Approach</b>: {route.approachTime}</p>
                 <p><b>Region</b>: {route.region}</p>
                 <p><b>Season</b>: {route.season}</p>
+
                 <p><b>FA</b>: {route.fa}</p>
-                <p>{route.contributor.getAvatar('large')}  <i>Contributed by {route.contributor.name}</i></p>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', paddingTop: '10px'}}>
+                    <p>{route.contributor.getAvatar('large')}<i> Contributed by {route.contributor.name}</i></p>
+                </div>
             </Content>
         </Card>
     )

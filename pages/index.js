@@ -18,8 +18,8 @@ export default function Index({contributors}) {
     const contributorElements = contributorObjects.map(c =>
         <Panel header={c.name} key={c.cid}>
             <div style={{display: 'flex', flexDirection: 'row'}}>
-                <div style={{flexGrow: '1', margin: '10px'}}>{c.getAvatar(80)}</div>
-                <div style={{flexGrow: '2', margin: '10px'}}>{c.blurb}</div>
+                <div style={{flexGrow: '0', margin: '10px'}}>{c.getAvatar(90)}</div>
+                <div style={{flexGrow: '1', margin: '10px'}}>{c.blurb}</div>
             </div>
         </Panel>
     );

@@ -2,23 +2,12 @@ import {Breadcrumb, Col, Layout, Row, Menu} from 'antd';
 import Topbar from "../../components/Topbar";
 import PageFooter from "../../components/Footer";
 import React from "react";
-import Link from "next/link";
 import RoutePreview from "../../components/RoutePreview";
 import RouteSelectionSidebar from "../../components/RouteSelectionSidebar";
 import {getRoutes} from "../../utils/DataLoader";
 import {RouteObject} from "../../objects/RouteObject";
-import Router from 'next/router';
-import MoreDropdown from "../../components/MoreDropdown";
-
-const dropdownMenu = (
-    <Menu>
-        <Menu.Item key="1">
-            <Link href="/map" as={`/map`}>
-                <a>View Map</a>
-            </Link>
-        </Menu.Item>
-    </Menu>
-)
+import NavigationDropdown from "../../components/NavigationDropdown";
+import Link from "next/link";
 
 const { Content } = Layout;
 
@@ -54,13 +43,12 @@ export default class Index extends React.Component {
         return (
             <div>
                 <Topbar
-                    onBack={() => Router.back()}
                     extra={[
-                        <MoreDropdown key="1" menu={dropdownMenu}/>
+                        <NavigationDropdown options={['home', 'map']}/>
                     ]}
                     title="WA Ice"
                     subTitle="The Elusive Beast"/>
-                <Layout style={{paddingTop: '64px', minHeight: '100vh'}}>
+                <Layout style={{paddingTop: '55px', minHeight: '100vh'}}>
                     <RouteSelectionSidebar
                         regionKeys={this.regionKeys}
                         difficultyKeys={this.difficultyKeys}

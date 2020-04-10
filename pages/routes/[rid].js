@@ -1,5 +1,4 @@
 import Topbar from "../../components/Topbar";
-import Router from 'next/router';
 import Link from "next/link";
 import { Layout, Breadcrumb, Col, Row} from "antd";
 import PageFooter from "../../components/Footer";
@@ -14,6 +13,7 @@ import fs from 'fs'
 import path from 'path'
 import { getRoutes} from "../../utils/DataLoader";
 import RouteStory from "../../components/RouteStory";
+import NavigationDropdown from "../../components/NavigationDropdown";
 
 const { Content } = Layout;
 
@@ -43,8 +43,13 @@ export default function Route({data}) {
 
     return (
         <div>
-            <Topbar onBack={() => Router.back()} title={route.name} subTitle={route.peak}/>
-            <Layout style={{paddingTop: '64px'}} className="site-layout">
+            <Topbar title={route.name}
+                    subTitle={route.peak}
+                    extra={[
+                        <NavigationDropdown options={['home', 'map', 'routes']}/>
+                    ]}
+            />
+            <Layout style={{paddingTop: '55px'}} className="site-layout">
                 <Content style={{ padding: '0 16px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }} key="home">
                         <Breadcrumb.Item><Link href="/"><a>Home</a></Link></Breadcrumb.Item>

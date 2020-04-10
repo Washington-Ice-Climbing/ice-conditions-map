@@ -143,7 +143,8 @@ export default function Index({contributors}) {
                                         <Title>Can I Contribute?</Title>
                                         <p>
                                             It takes a community to put together a guide like this. If you have route beta,
-                                            photos, or stories please email <a>washingtonice1@gmail.com</a> to help out. We are always
+                                            photos, or stories please email <a href="mailto:washingtonice1@gmail.com">washingtonice1@gmail.com</a>
+                                            to help out. We are always
                                             looking for more routes to include, so please send them our way!
                                         </p>
                                         <p>

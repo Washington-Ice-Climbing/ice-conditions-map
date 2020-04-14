@@ -32,6 +32,10 @@ module.exports = () => {
                     test: antStyles,
                     use: 'null-loader',
                 })
+            } else {
+                config.node = {
+                    fs: 'empty'
+                }
             }
             return config
         },

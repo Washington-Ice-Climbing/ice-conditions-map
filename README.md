@@ -70,10 +70,12 @@ To add a new route:
     - Copy the json structure for the rest of the object. Populate data correctly.
     - `coordinates` is the long,lat (decimal) of the start of the climb.
 2. Create the folder  `public/routes/<rid>`.
-    - Inside, create a `imgs` folder (note all photos must be square):
+    - Inside, create a `images` folder (note all photos must be square):
         - Add a `cover.jpg`. This is the cover image on the routes screen.
         - Add a `topo.jpg`. This is the topo image on the topos tab.
-        - Add any more photos you want. These will be displayed on the carousel.
+        - Add any more photos you want. These can be displayed on the carousel.
+        - Create a `images.js` file (copy other examples). This is where you list
+        which images will appear in the carousel and their respective captions.
     - Create html content files:
         - `intro.html`
         - `approach.html`

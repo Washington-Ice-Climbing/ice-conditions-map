@@ -1,9 +1,9 @@
 import { Card, Carousel } from 'antd';
 
 export default function RoutePhotos({route, onPhotoClick}) {
-    const imgs = route.imgs.map((imgSrc, index) =>
-        <div key={imgSrc} onClick={() => onPhotoClick(index)}>
-            <img alt="image1" style={{ width: '100%', height: '100%' }} src={imgSrc} />
+    const imgs = route.imgs.map((img, index) =>
+        <div key={img.src} onClick={() => onPhotoClick(index)}>
+            <img alt={img.caption} style={{ width: '100%', height: '100%' }} src={img.src} />
         </div>
     )
     return (

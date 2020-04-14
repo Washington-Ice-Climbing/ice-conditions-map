@@ -9,9 +9,7 @@ import RouteLinks from "../../components/RouteLinks";
 import RouteHistory from "../../components/RouteHistory";
 import RoutePhotos from "../../components/RoutePhotos";
 import { RouteObject } from "../../objects/RouteObject"
-import fs from 'fs'
-import path from 'path'
-import { getRoutes} from "../../utils/DataLoader";
+import {getRouteImages, getRoutes, getRouteContent} from "../../utils/DataLoader";
 import RouteStory from "../../components/RouteStory";
 import NavigationDropdown from "../../components/NavigationDropdown";
 import Head from 'next/head'
@@ -66,9 +64,9 @@ export default class Route extends React.Component {
 
         const photoLightbox = !photoIsOpen ? null :
             <Lightbox
-                mainSrc={images[photoIndex]}
-                nextSrc={images[(photoIndex + 1) % images.length]}
-                prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                mainSrc={images[photoIndex].src}
+                nextSrc={images[(photoIndex + 1) % images.length].src}
+                prevSrc={images[(photoIndex + images.length - 1) % images.length].src}
                 onCloseRequest={() => this.setState({ photoIsOpen: false })}
                 onMovePrevRequest={() =>
                     this.setState({ photoIndex: (photoIndex + images.length - 1) % images.length})
@@ -76,6 +74,7 @@ export default class Route extends React.Component {
                 onMoveNextRequest={() =>
                     this.setState({photoIndex: (photoIndex + 1) % images.length})
                 }
+                imageCaption={images[photoIndex].caption}
             />;
 
         return (
@@ -125,30 +124,9 @@ export default class Route extends React.Component {
 // Props created at build time for static rendering.
 export async function getStaticProps({ params }) {
     const route = getRoutes().filter(r => params.rid === r.rid)[0]
-    const routeDir = path.join(process.cwd(), route.routeDir)
 
-    // can have a story or not
-    let story = null;
-    try {story = fs.readFileSync(path.join(routeDir, 'story.html'), 'utf8')} catch(e) { null; }
-
-    route.content = {
-        intro: fs.readFileSync(path.join(routeDir, 'intro.html'), 'utf8'),
-        beta: {
-            approach: fs.readFileSync(path.join(routeDir, 'approach.html'), 'utf8'),
-            climb: fs.readFileSync(path.join(routeDir, 'climb.html'), 'utf8'),
-            descent: fs.readFileSync(path.join(routeDir, 'descent.html'), 'utf8'),
-            gear: fs.readFileSync(path.join(routeDir, 'gear.html'), 'utf8'),
-            conditions: fs.readFileSync(path.join(routeDir, 'conditions.html'), 'utf8'),
-            strategy: fs.readFileSync(path.join(routeDir, 'strategy.html'), 'utf8')
-        },
-        extra: {
-            history: fs.readFileSync(path.join(routeDir, 'history.html'), 'utf8'),
-            story: story,
-            links: fs.readFileSync(path.join(routeDir, 'links.html'), 'utf8')
-        }
-    }
-
-    route.imgs = fs.readdirSync(path.join(routeDir, 'imgs')).map(f => path.join(route.imgDir, "imgs", f))
+    route.imgs = await getRouteImages(route.rid)
+    route.content = await getRouteContent(route.rid)
 
     return {
         props: {data: route}

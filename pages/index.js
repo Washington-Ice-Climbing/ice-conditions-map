@@ -63,21 +63,16 @@ export default function Index({contributors}) {
                         <Content style={{paddingTop: "20px"}}>
                             <Title>An Alpine Enigma</Title>
                             <p>
-                                The majestic Cascade Mountains Range is known for many things - lofty volcanoes, rugged spires, and beautiful forests -
+                                The majestic Cascade Mountains Range is known for many things - rugged peaks, sprawling glaciers, and beautiful forests -
                                 but one thing it is not known for is ice climbing. Its maritime climate, poor winter access,
                                 and lack of up-to-date conditions all contribute to the challenges of ice climbing in the Cascades.
                                 The rational Cascade Climber swaps their tools for skis. But the hopeful climber
                                 pulls out a map, monitors conditions, and sharpens their tools: the hunt is on.
-
-                                {/*Our wet, maritime climate makes it challenging to*/}
-                                {/*find reliable ice climbing conditions. Poor access confines winter recreation to a few distinct areas.*/}
-                                {/*A lack of information and up-to-date condition reports makes ice climbing more of a gamble than*/}
-                                {/*many feel is worthy for the reward.*/}
                             </p>
                             <p>
                                 For the rugged, patient alpinist willing to brave the wet, the brush, the mystery, and the disappointment of failure,
                                 Cascade ice climbing can prove rewarding like no other experience.
-                                Buried in the history books and local lore lies a treasure trove of
+                                Buried in the internet archives and local lore lies a treasure trove of
                                 adventurous alpine ice climbs.  This guide aims to demystify many of these climbs - which are not
                                 as remote or impossible as they may seem. Browse, research, dream, train, and send!
                             </p>

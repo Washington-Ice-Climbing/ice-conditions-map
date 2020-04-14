@@ -22,7 +22,7 @@ export class RouteObject {
         this.map = json.map;
         this.topoImg = json.topoImg;
         this.coordinates = json.coordinates;
-        this.contributor = new ContributorObject(contributors.filter(c => c.cid === json.contributor)[0]);
+        this.contributors = contributors.filter(c => json.contributors.includes(c.cid)).map(c => new ContributorObject(c));
     }
 
     getTitle() {

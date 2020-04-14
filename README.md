@@ -86,7 +86,7 @@ To add a new route:
         - `story.html` (optional)
         
 ## Contributors
-Routes link to a "contributor". To add a new contributor:
+Routes link to one or more "contributors". To add a new contributor:
 1. Add a new object to the array in `public/contributors/contributors.js`
 - `cid` should match the contributor in the corresponding route objects.
 - optionally add an image to the folder and link it. If no image is provided, the avatar

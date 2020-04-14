@@ -15,7 +15,7 @@ export const routes = [
         "fa": "Porter McMichael, Kyle McCrohan, Tavish Hansen, February 2020",
         "map": "https://caltopo.com/m/VELL",
         "coordinates":[-121.3427,48.04097],
-        "contributor":"KM"
+        "contributors":["KM"]
     },
     {
         "rid": "hot-tubbs",
@@ -33,6 +33,6 @@ export const routes = [
         "fa": "Jacob Krantz, Kyle McCrohan, January 2019",
         "map": "https://caltopo.com/m/VELL",
         "coordinates":[-121.46193,47.45114],
-        "contributor":"KM"
+        "contributors":["KM"]
     }
 ]

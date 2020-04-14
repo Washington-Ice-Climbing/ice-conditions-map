@@ -83,28 +83,28 @@ export default function Index({contributors}) {
                                     <FeatureCard
                                         title="Browse"
                                         description="Filter by region and difficulty."
-                                        img="icons/mountainSkyline1.png"
+                                        img="icons/xdream.png"
                                         color={theme.colors.primary}/>
                                 </Col>
                                 <Col span={6} lg={6} md={12} sm={24} xs={24} key="2">
                                     <FeatureCard
                                         title="Discover"
                                         description="Interactive map with routes and condition reports."
-                                        img="icons/mountainSkyline2.png"
+                                        img="icons/icescrew.png"
                                         color={theme.colors.link}/>
                                 </Col>
                                 <Col span={6} lg={6} md={12} sm={24} xs={24} key="3">
                                     <FeatureCard
                                         title="Enhance"
                                         description="Integrated caltopo maps and gpx tracks."
-                                        img="icons/mountainSkyline3.png"
+                                        img="icons/boot.png"
                                         color={theme.colors.accent2}/>
                                 </Col>
                                 <Col span={6} lg={6} md={12} sm={24} xs={24} key="4">
                                     <FeatureCard
                                         title="Inspire"
                                         description="Hear the stories of other climbers."
-                                        img="icons/mountainSkyline4.png"
+                                        img="icons/rope.png"
                                         color={theme.colors.accent}/>
                                 </Col>
                             </Row>
@@ -123,7 +123,7 @@ export default function Index({contributors}) {
                                         </ul>
                                     </div>
                                 </Col>
-                                <Col span={12} lg={12} md={12} sm={24} xs={24} key="1">
+                                <Col span={12} lg={12} md={12} sm={24} xs={24} key="2">
                                     <div className="textBlock">
                                         <Title>What's Coming</Title>
                                         <ul>

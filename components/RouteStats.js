@@ -5,7 +5,7 @@ const { Content } = Layout;
 
 export default function RouteStats({route}) {
     const contributors = route.contributors.map(c =>
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', paddingTop: '5px'}}>
+        <div key={c.cid} style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', paddingTop: '5px'}}>
             <p>{c.getAvatar('large')}<i> Contributed by {c.name}</i></p>
         </div>
     )
@@ -31,7 +31,7 @@ export default function RouteStats({route}) {
 
 function RouteStat({stat, value, info}) {
     return (
-        <p>
+        <p key={stat}>
             <Tooltip title={info}>
                 <b>
                     {stat}

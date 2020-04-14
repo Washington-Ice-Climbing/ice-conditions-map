@@ -1,5 +1,4 @@
 import {Layout, Typography, Button, Divider, Row, Col, Collapse} from 'antd';
-import Topbar from "../components/Topbar";
 import PageFooter from "../components/Footer";
 import theme from '../styles/theme';
 import FeatureCard from "../components/FeatureCard";
@@ -7,6 +6,7 @@ import { useRouter } from 'next/router';
 import { getContributors } from "../utils/DataLoader";
 import {ContributorObject} from "../objects/ContributorObject";
 import React from "react";
+import Head from 'next/head'
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -25,17 +25,21 @@ export default function Index({contributors}) {
     );
     return (
         <div>
-            {/*<Topbar title="WA Ice" subTitle="The Elusive Beast"/>*/}
+            <Head>
+                <title>Cascade Ice</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <Layout style={{minHeight: '100vh'}}>
                 <Content style={{padding: '30px', textAlign: 'center', paddingTop: '80px', paddingBottom: '30px', backgroundColor: theme.colors.primary, color: "white"}}>
                     {/*<div style={{textAlign: 'center', paddingTop: '100px', paddingBottom: '0px'}}>*/}
-                        <h1 id="title" style={{color: 'white'}}>Washington Ice</h1>
+                        <h1 id="title" style={{color: 'white'}}>Cascade Ice</h1>
                         <style jsx>{`
                             @media screen and (min-width: 601px) { #title { font-size: 80px;}}
                             @media screen and (max-width: 600px) { #title { font-size: 40px;}}`}
                         </style>
                         <p>
-                            Beta, community, and inspiration for ice climbing in the Evergreen State. Sharpen your tools. The hunt is on.
+                            {/*Beta, community, and inspiration for ice climbing in the Evergreen State. Sharpen your tools. The hunt is on.*/}
+                            Close to Home. Far Flung Odds. Endless Adventure.
                         </p>
                         <div style={{margin: "30px"}}>
                             <Button
@@ -57,19 +61,25 @@ export default function Index({contributors}) {
                 <Content style={{backgroundColor: 'white'}}>
                     <Content style={{maxWidth: '1200px', margin: '0 auto', padding: '30px'}}>
                         <Content style={{paddingTop: "20px"}}>
-                            <Title>The Elusive Beast</Title>
+                            <Title>An Alpine Enigma</Title>
                             <p>
-                                The state of Washington is known for many things - winding waterways, rugged mountains, and beautiful forests -
-                                but one thing it is not known for is ice climbing. Our wet, maritime climate makes it challenging to
-                                find reliable ice climbing conditions. Poor access confines winter recreation to a few distinct areas.
-                                A lack of information and up-to-date condition reports makes ice climbing more of a gamble than
-                                many feel is worthy for the reward.
+                                The majestic Cascade Mountains Range is known for many things - lofty volcanoes, rugged spires, and beautiful forests -
+                                but one thing it is not known for is ice climbing. Its maritime climate, poor winter access,
+                                and lack of up-to-date conditions all contribute to the challenges of ice climbing in the Cascades.
+                                The rational Cascade Climber swaps their tools for skis. But the hopeful climber
+                                pulls out a map, monitors conditions, and sharpens their tools: the hunt is on.
+
+                                {/*Our wet, maritime climate makes it challenging to*/}
+                                {/*find reliable ice climbing conditions. Poor access confines winter recreation to a few distinct areas.*/}
+                                {/*A lack of information and up-to-date condition reports makes ice climbing more of a gamble than*/}
+                                {/*many feel is worthy for the reward.*/}
                             </p>
                             <p>
-                                Although Washington lacks in reliable low elevation water ice, it does have its fair share of
-                                adventurous alpine ice climbs. This guide aims to demystify many of these climbs - which are not
-                                as remote or impossible as they may seem. Additionally, it seeks to catalog the rich history
-                                of alpine climbing in Washington, which continues to evolve. Browse, research, dream, and send!
+                                For the rugged, patient alpinist willing to brave the wet, the brush, the mystery, and the disappointment of failure,
+                                Cascade ice climbing can prove rewarding like no other experience.
+                                Buried in the history books and local lore lies a treasure trove of
+                                adventurous alpine ice climbs.  This guide aims to demystify many of these climbs - which are not
+                                as remote or impossible as they may seem. Browse, research, dream, train, and send!
                             </p>
                         </Content>
                         <Divider/>
@@ -143,7 +153,7 @@ export default function Index({contributors}) {
                                         <Title>Can I Contribute?</Title>
                                         <p>
                                             It takes a community to put together a guide like this. If you have route beta,
-                                            photos, or stories please email <a href="mailto:washingtonice1@gmail.com">washingtonice1@gmail.com</a>
+                                            photos, or stories please email <a href="mailto:cascadeiceguide@gmail.com">cascadeiceguide@gmail.com</a>
                                             to help out. We are always
                                             looking for more routes to include, so please send them our way!
                                         </p>

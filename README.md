@@ -1,5 +1,5 @@
-# ice-conditions-map
-Interactive map showing crowdsourced ice climbing conditions and photos.
+# Cascade Ice
+Cascade ice climbing guide.
 Check it out at [https://wa-ice.now.sh]( https://wa-ice.now.sh).
 
 ## Getting started
@@ -68,6 +68,7 @@ To add a new route:
 1. Add a route object to the array in `public/routes/routes.js`.
     - `rid` is the name of the folder that will hold assets for this route.
     - Copy the json structure for the rest of the object. Populate data correctly.
+    - `coordinates` is the long,lat (decimal) of the start of the climb.
 2. Create the folder  `public/routes/<rid>`.
     - Inside, create a `imgs` folder (note all photos must be square):
         - Add a `cover.jpg`. This is the cover image on the routes screen.
@@ -84,6 +85,15 @@ To add a new route:
         - `history.html`
         - `links.html`
         - `story.html` (optional)
+3. Create a map on caltopo:
+    - Create the map under the gmail account `cascadeiceguide@gmail.com` (ask Kyle for password)
+    - Make all lines use the small circle dot style.
+    - Make the "Approach" line red (default color)
+    - Make the "Climb" line blue (select from basic color menu)
+    - Make the "Descent" line yellow (select from basic color menu)
+    - Add any additional lines or markers as fit
+    - Use "MapBuilderTopo" map layer unless specific reason to use otherwise
+    - After saving the map to this account, a static url will appear, which you can use.
         
 ## Contributors
 Routes link to one or more "contributors". To add a new contributor:

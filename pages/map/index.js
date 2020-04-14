@@ -5,7 +5,7 @@ import {getRoutes} from "../../utils/DataLoader";
 import {RouteObject} from "../../objects/RouteObject";
 import Router from 'next/router';
 import dynamic from 'next/dynamic';
-
+import Head from 'next/head'
 
 const Map = dynamic(() => import('../../components/Map'),  { ssr: false })
 
@@ -20,13 +20,17 @@ export default class Index extends React.Component {
     render() {
         return (
             <div>
+                <Head>
+                    <title>Map | Cascade Ice</title>
+                    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                </Head>
                 <Topbar
-                    onBack={() => Router.back()}
+                    onTitleClick={() => Router.push('/')}
                     extra={[
                         <NavigationDropdown options={['home', 'routes']}/>
                     ]}
-                    title="WA Ice"
-                    subTitle="The Elusive Beast"/>
+                    title="Cascade Ice"
+                    subTitle="An Alpine Enigma"/>
                 <Map routes={this.routes}/>
             </div>
         )

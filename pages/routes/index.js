@@ -8,6 +8,8 @@ import {getRoutes} from "../../utils/DataLoader";
 import {RouteObject} from "../../objects/RouteObject";
 import NavigationDropdown from "../../components/NavigationDropdown";
 import Link from "next/link";
+import Head from 'next/head'
+import Router from 'next/router';
 
 const { Content } = Layout;
 
@@ -42,12 +44,17 @@ export default class Index extends React.Component {
         );
         return (
             <div>
+                <Head>
+                    <title>Routes | Cascade Ice</title>
+                    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                </Head>
                 <Topbar
+                    onTitleClick={() => Router.push('/')}
                     extra={[
                         <NavigationDropdown options={['home', 'map']}/>
                     ]}
-                    title="WA Ice"
-                    subTitle="The Elusive Beast"/>
+                    title="Cascade Ice"
+                    subTitle="An Alpine Enigma"/>
                 <Layout style={{paddingTop: '55px', minHeight: '100vh'}}>
                     <RouteSelectionSidebar
                         regionKeys={this.regionKeys}

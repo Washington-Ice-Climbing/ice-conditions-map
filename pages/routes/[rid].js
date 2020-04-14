@@ -14,6 +14,7 @@ import path from 'path'
 import { getRoutes} from "../../utils/DataLoader";
 import RouteStory from "../../components/RouteStory";
 import NavigationDropdown from "../../components/NavigationDropdown";
+import Head from 'next/head'
 
 const { Content } = Layout;
 
@@ -43,6 +44,10 @@ export default function Route({data}) {
 
     return (
         <div>
+            <Head>
+                <title>{route.getTitle()} | Cascade Ice</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <Topbar title={route.name}
                     subTitle={route.peak}
                     extra={[

@@ -14,10 +14,10 @@ export default function RouteStats({route}) {
             <Content>
                 <h2>Route Stats</h2>
                 <Stars numStars={route.stars} style={{position: 'absolute', top: '30px', right: '30px', zIndex: '1'}}/>
-                <RouteStat stat="Difficulty" value={route.difficulty} info="Overall measure of route difficulty"/>
+                <RouteStat stat="Difficulty" value={route.difficulty} info="Overall measure of route difficulty. PD=a little difficult, AD: fairly hard, D=difficult, TD=very difficult, ED=extremely difficult."/>
                 <RouteStat stat="Technical Grade" value={route.grade} info="Grade of route crux"/>
                 <RouteStat stat="Length" value={route.length} info="Height of technical portion of route"/>
-                <RouteStat stat="Commitment" value={route.commitment} info="Reflects difficulty to bail, length, etc"/>
+                <RouteStat stat="Commitment" value={route.commitment} info="Expected time to complete technical climb; I=1-2hrs, II=2-4hrs, III=most of a day, IV=full day, V=day+."/>
                 <RouteStat stat="Avalanche Hazard" value={route.avalanche} info="Overall measure of avalanche hazard"/>
                 <RouteStat stat="Approach" value={route.approachTime} info="Estimated approach time in normal conditions"/>
                 <RouteStat stat="Region" value={route.region} info="General region of access for climb"/>

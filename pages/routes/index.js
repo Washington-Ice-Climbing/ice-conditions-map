@@ -22,8 +22,8 @@ export default class Index extends React.Component {
             filteredRoutes: routes.map(r => new RouteObject(r))
         }
         this.allRoutes = routes.map(r => new RouteObject(r))
-        this.regionKeys = [...new Set(routes.map(r => r.region))]
-        this.difficultyKeys = [...new Set(routes.map(r => r.difficulty))]
+        this.regionKeys = ["Mt. Hood", "Mt. Rainier", "I90", "US2", "Mountain Loop", "Highway 20", "Mt. Baker", "BC"]
+        this.difficultyKeys = ["PD","AD","D","TD","ED"]
     }
 
     filterRegion = region => {

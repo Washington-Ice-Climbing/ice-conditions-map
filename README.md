@@ -69,8 +69,10 @@ To add a new route:
     - `rid` is the name of the folder that will hold assets for this route.
     - Copy the json structure for the rest of the object. Populate data correctly.
     - `coordinates` is the long,lat (decimal) of the start of the climb.
+    - `region` is one of the following: ["Mt. Hood", "Mt. Rainier", "I90", "US2", "Mountain Loop", "Highway 20", "Mt. Baker", "BC"]
+    - `difficulty` is one of the following: ["PD","AD","D","TD","ED"]
 2. Create the folder  `public/routes/<rid>`.
-    - Inside, create a `images` folder (note all photos must be square):
+    - Inside, create a `images` folder (note all photos must be square and should be 1000x1000):
         - Add a `cover.jpg`. This is the cover image on the routes screen.
         - Add a `topo.jpg`. This is the topo image on the topos tab.
         - Add any more photos you want. These can be displayed on the carousel.

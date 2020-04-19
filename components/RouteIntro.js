@@ -7,7 +7,7 @@ export default function RouteIntro({route}) {
         <Card style={{height: '100%'}}>
             <Content>
                 <h2>Route Overview</h2>
-                <div dangerouslySetInnerHTML={{__html: route.content.intro}}/>
+                <div dangerouslySetInnerHTML={{__html: route.content.overview}}/>
             </Content>
         </Card>
     )

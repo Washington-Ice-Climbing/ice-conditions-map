@@ -92,12 +92,13 @@ To add a new route:
 3. Create a map on caltopo:
     - Create the map under the gmail account `cascadeiceguide@gmail.com` (ask Kyle for password)
     - Make all lines use the small circle dot style.
-    - Make the "Approach" line red (default color)
-    - Make the "Climb" line blue (select from basic color menu)
+    - Make the "Approach" line blue (select from basic color menu)
+    - Make the "Climb" line red (default color)
     - Make the "Descent" line yellow (select from basic color menu)
     - Add any additional lines or markers as fit
     - Use "MapBuilderTopo" map layer unless specific reason to use otherwise
     - After saving the map to this account, a static url will appear, which you can use.
+    - Click "Manage this map" and make sure it is "Publicly Viewable".
         
 ## Contributors
 Routes link to one or more "contributors". To add a new contributor:

@@ -21,7 +21,7 @@ export default function RouteBeta({route}) {
                             <Iframe
                                 url={route.map}
                                 width="100%"
-                                height="350px"  // Struggling to get this to work with 100%
+                                height="400px"  // Struggling to get this to work with 100%
                                 display="initial"
                                 position="relative"
                                 // styles={{height: "400px"}}

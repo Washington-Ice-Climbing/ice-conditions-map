@@ -26,7 +26,7 @@ export async function getRouteContent(rid) {
     try {story = fs.readFileSync(path.join(routeDir, 'story.html'), 'utf8')} catch(e) { null; }
 
     return {
-        intro: fs.readFileSync(path.join(routeDir, 'intro.html'), 'utf8'),
+        overview: fs.readFileSync(path.join(routeDir, 'overview.html'), 'utf8'),
         beta: {
             approach: fs.readFileSync(path.join(routeDir, 'approach.html'), 'utf8'),
             climb: fs.readFileSync(path.join(routeDir, 'climb.html'), 'utf8'),

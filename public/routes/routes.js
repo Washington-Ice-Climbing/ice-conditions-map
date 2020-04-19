@@ -22,7 +22,7 @@ export const routes = [
         name: "Hot Tubbs",
         peak: "Bryant Peak",
         region: "I90",
-        grade: "WI4",
+        grade: "WI4-",
         length: "600'",
         difficulty: "AD",
         stars: 2,

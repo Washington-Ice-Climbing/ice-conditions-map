@@ -65,30 +65,32 @@ now --prod
 
 ## Routes
 To add a new route:
-1. Add a route object to the array in `public/routes/routes.js`.
-    - `rid` is the name of the folder that will hold assets for this route.
-    - Copy the json structure for the rest of the object. Populate data correctly.
+1. Add a route id to the array in `public/routes/routes.js`.
+ - The route id you choose will be the name of the folder containing its data.
+ - Route id must be unique.
+ - Only use lower case letters and hyphens in the id.
+2. Create the folder  `public/routes/<rid>`, where `rid` is the route id chosen.
+- Create a file `info.js` inside (copy and adjust from other examples):
     - `coordinates` is the long,lat (decimal) of the start of the climb.
     - `region` is one of the following: ["Mt. Hood", "Mt. Rainier", "I90", "US2", "Mountain Loop", "Highway 20", "Mt. Baker", "BC"]
     - `difficulty` is one of the following: ["PD","AD","D","TD","ED"]
-2. Create the folder  `public/routes/<rid>`.
-    - Inside, create a `images` folder (note all photos must be square and should be 1000x1000, and should have a `.jpg` extension):
-        - Add a `cover.jpg`. This is the cover image on the routes screen.
-        - Add a `topo.jpg`. This is the topo image on the topos tab.
-        - Add any more photos you want. These can be displayed on the carousel.
-        - Create a `images.js` file (copy other examples). This is where you list
-        which images will appear in the carousel and their respective captions.
-    - Create html content files:
-        - `intro.html`
-        - `approach.html`
-        - `climb.html`
-        - `descent.html`
-        - `gear.html`
-        - `conditions.html`
-        - `strategy.html`
-        - `history.html`
-        - `links.html`
-        - `story.html` (optional)
+- Inside, create a `images` folder (note all photos must be square and should be 1000x1000, and should have a `.jpg` extension):
+    - Add a `cover.jpg`. This is the cover image on the routes screen.
+    - Add a `topo.jpg`. This is the topo image on the topos tab.
+    - Add any more photos you want. These can be displayed on the carousel.
+    - Create a `images.js` file (copy other examples). This is where you list
+    which images will appear in the carousel and their respective captions.
+- Create html content files:
+    - `intro.html`
+    - `approach.html`
+    - `climb.html`
+    - `descent.html`
+    - `gear.html`
+    - `conditions.html`
+    - `strategy.html`
+    - `history.html`
+    - `links.html`
+    - `story.html` (optional)
 3. Create a map on caltopo:
     - Create the map under the gmail account `cascadeiceguide@gmail.com` (ask Kyle for password)
     - Make all lines use the small circle dot style.

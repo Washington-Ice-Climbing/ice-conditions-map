@@ -9,7 +9,7 @@ import RouteLinks from "../../components/RouteLinks";
 import RouteHistory from "../../components/RouteHistory";
 import RoutePhotos from "../../components/RoutePhotos";
 import { RouteObject } from "../../objects/RouteObject"
-import {getRouteImages, getRoutes, getRouteContent} from "../../utils/DataLoader";
+import {getRoute, getRouteIds} from "../../utils/DataLoader";
 import RouteStory from "../../components/RouteStory";
 import NavigationDropdown from "../../components/NavigationDropdown";
 import Head from 'next/head'
@@ -123,20 +123,15 @@ export default class Route extends React.Component {
 
 // Props created at build time for static rendering.
 export async function getStaticProps({ params }) {
-    const route = getRoutes().filter(r => params.rid === r.rid)[0]
-
-    route.imgs = await getRouteImages(route.rid)
-    route.content = await getRouteContent(route.rid)
-
     return {
-        props: {data: route}
+        props: {data: await getRoute(params.rid)}
     }
 }
 
 // Define which paths will be statically build at build time.
 export async function getStaticPaths() {
     return {
-        paths: getRoutes().map(r => ({ params: { rid: r.rid } })),
+        paths: getRouteIds().map(rid => ({ params: { rid: rid } })),
         fallback: false // show 404 error if route page not found
     };
 }

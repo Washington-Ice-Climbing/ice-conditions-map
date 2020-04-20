@@ -21,7 +21,7 @@ export default class Map extends React.Component {
         this.state = {
             selectedRoute : null,
             center : [-121.50124,48.01565],
-            zoom : [8]
+            zoom : [7]
         }
     }
 

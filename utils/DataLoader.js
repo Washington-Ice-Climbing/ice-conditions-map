@@ -3,22 +3,37 @@ import { contributors } from "../public/contributors/contributors";
 import fs from 'fs';
 import path from 'path';
 
-export function getRoutes() {
-    return routes.map(r => addRouteLinks(r));
+// Return list of route ids
+export function getRouteIds() {
+    return routes;
+}
+
+// Returns just basic route info for each route.
+export async function getRoutes() {
+    const routeFiles = await Promise.all(routes.map(rid => import(`../public/routes/${rid}/info`)));
+    return routeFiles.map(r => addRouteLinks(r.info));
 }
 
 export function getContributors() {
     return contributors;
 }
 
-export async function getRouteImages(rid) {
+// Returns all route image, info, and content
+export async function getRoute(rid) {
+    const route = (await getRoutes()).filter(r => rid=== r.rid)[0];
+    route.imgs = await getRouteImages(route.rid);
+    route.content = await getRouteContent(route.rid);
+    return route;
+}
+
+async function getRouteImages(rid) {
     const images = (await import(`../public/routes/${rid}/images/images`)).images
     return images.map(image => Object.assign(image, {
         src: `${getImagePath(rid)}/${image.src}`
     }))
 }
 
-export async function getRouteContent(rid) {
+async function getRouteContent(rid) {
     const routeDir = path.join(process.cwd(), `/public/${getDataPath(rid)}`)
 
     // can have a story or not

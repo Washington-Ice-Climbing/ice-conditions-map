@@ -35,7 +35,7 @@ export default function Index({contributors}) {
                         <h1 id="title" style={{color: 'white'}}>Cascade Ice</h1>
                         <style jsx>{`
                             @media screen and (min-width: 601px) { #title { font-size: 80px;}}
-                            @media screen and (max-width: 600px) { #title { font-size: 40px;}}`}
+                            @media screen and (max-width: 600px) { #title { font-size: 50px;}}`}
                         </style>
                         <p>
                             {/*Beta, community, and inspiration for ice climbing in the Evergreen State. Sharpen your tools. The hunt is on.*/}

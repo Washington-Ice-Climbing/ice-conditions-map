@@ -38,5 +38,5 @@ export default class Index extends React.Component {
 }
 
 export async function getStaticProps() {
-    return { props: { routes : getRoutes() } }
+    return { props: { routes : await getRoutes() } }
 }

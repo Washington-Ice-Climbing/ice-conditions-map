@@ -1,4 +1,6 @@
 export const routes = [
     "superalpine",
-    "hot-tubbs"
+    "hot-tubbs",
+    "nw-couloir-eldorado",
+    "north-ridge-baker"
 ]

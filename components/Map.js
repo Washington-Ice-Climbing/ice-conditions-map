@@ -29,7 +29,7 @@ export default class Map extends React.Component {
         this.setState({
             selectedRoute : route,
             center : feature.geometry.coordinates,
-            zoom : [12]
+            zoom : [13]
         })
     }
 
@@ -71,7 +71,7 @@ export default class Map extends React.Component {
                         {markers}
                     </Layer>
                     {popup}
-                    <ZoomControl position="bottom-right"/>
+                    <ZoomControl position="bottom-right" zoomDiff={2}/>
                 </MapGL>
             </div>
         )

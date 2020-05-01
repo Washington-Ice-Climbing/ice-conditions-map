@@ -10,6 +10,8 @@ export const contributors = [
     {
         "cid": "DPS",
         "name": "Daniel Smith",
-        "blurb": "Daniel is a very experienced climber!... he can write the rest"
+        "image": "/contributors/DPS.jpg",
+        "blurb": "Daniel is a very experienced climber. He has climbed dozens of alpine ice routes in the Cascades, climbing" +
+            " with the likes of Colin Haley and Mark Bunker over the years."
     }
 ]

@@ -83,6 +83,8 @@ export default class Route extends React.Component {
                     <title>{route.getTitle()} | Cascade Ice</title>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 </Head>
+                {/*Adding an invisible image so that the preview on a mobile browser will show this image*/}
+                <img src={route.coverImg} style={{position: 'absolute', left: '0', top: '0', zIndex: '-5'}}/>
                 <Topbar title={route.name}
                         subTitle={route.peak}
                         extra={[

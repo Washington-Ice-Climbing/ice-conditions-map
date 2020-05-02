@@ -1,7 +1,8 @@
 export const routes = [
+    "cosley-houston",
     "superalpine",
     "hot-tubbs",
     "nw-couloir-eldorado",
-    "cosley-houston",
+    "alpine-dropout",
     "north-ridge-baker"
 ]

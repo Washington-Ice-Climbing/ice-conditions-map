@@ -7,6 +7,7 @@ import { getContributors } from "../utils/DataLoader";
 import {ContributorObject} from "../objects/ContributorObject";
 import React from "react";
 import Head from 'next/head'
+import Disclaimer from "../components/Disclaimer";
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -148,14 +149,14 @@ export default function Index({contributors}) {
                                         <Title>Can I Contribute?</Title>
                                         <p>
                                             It takes a community to put together a guide like this. If you have route beta,
-                                            photos, or stories please email <a href="mailto:cascadeiceguide@gmail.com">cascadeiceguide@gmail.com</a>
-                                            to help out. We are always
+                                            photos, or stories please email <a href="mailto:cascadeiceguide@gmail.com">cascadeiceguide@gmail.com</a> to
+                                            help out. We are always
                                             looking for more routes to include, so please send them our way!
                                         </p>
                                         <p>
                                             If you would like to contribute to development, please email (insert email here).
                                             Our code is open source
-                                            on <a href="https://github.com/Washington-Ice-Climbing/ice-conditions-map">Github.com</a>.
+                                            on <a href="https://github.com/Washington-Ice-Climbing/ice-conditions-map" target="_blank">Github.com</a>.
                                         </p>
                                     </div>
                                 </Col>
@@ -175,16 +176,7 @@ export default function Index({contributors}) {
                             </Row>
                         </Content>
                         <Divider/>
-                        <Content>
-                            <Title>Disclaimer</Title>
-                            <p>
-                                <i>
-                                    Ice climbing is a very dangerous activity. This guide assumes no responsibility for accidents
-                                    or losses resulting from these activities. This guide is not a replacement for professional
-                                    training. One should seek professional advice or guidance before climbing these routes.
-                                </i>
-                            </p>
-                        </Content>
+                        <Disclaimer/>
                     </Content>
                 </Content>
                 <PageFooter/>

@@ -64,8 +64,8 @@ export default class Index extends React.Component {
                         clearFilters={this.clearFilters}
                     />
                     <Layout className="site-layout">
-                        <Content style={{ padding: '0 16px' }}>
-                            <Breadcrumb style={{ margin: '16px 0' }}>
+                        <Content style={{ padding: '0px 16px 8px 16px' }}>
+                            <Breadcrumb style={{ margin: '16px 0px 8px 0px' }}>
                                 <Breadcrumb.Item><Link href="/"><a>Home</a></Link></Breadcrumb.Item>
                                 <Breadcrumb.Item>Routes</Breadcrumb.Item>
                             </Breadcrumb>

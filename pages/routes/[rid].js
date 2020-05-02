@@ -93,7 +93,7 @@ export default class Route extends React.Component {
                 />
                 <Layout style={{paddingTop: '55px'}} className="site-layout">
                     <Content style={{ padding: '0 16px' }}>
-                        <Breadcrumb style={{ margin: '16px 0' }} key="home">
+                        <Breadcrumb style={{ margin: '16px 0px 0px 0px' }} key="home">
                             <Breadcrumb.Item><Link href="/"><a>Home</a></Link></Breadcrumb.Item>
                             <Breadcrumb.Item><Link href="/routes"><a>Routes</a></Link></Breadcrumb.Item>
                             <Breadcrumb.Item>{route.name}</Breadcrumb.Item>

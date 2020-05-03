@@ -30,33 +30,33 @@ export default function Index({contributors}) {
                 <title>Cascade Ice</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
+            {/*Adding an invisible image so that the preview on a mobile browser will show this image*/}
+            <img src="/icons/favicon-black.png" style={{position: 'absolute', left: '0', top: '0', zIndex: '-5', width: '100px'}}/>
             <Layout style={{minHeight: '100vh'}}>
                 <Content style={{padding: '30px', textAlign: 'center', paddingTop: '80px', paddingBottom: '30px', backgroundColor: theme.colors.primary, color: "white"}}>
-                    {/*<div style={{textAlign: 'center', paddingTop: '100px', paddingBottom: '0px'}}>*/}
-                        <h1 id="title" style={{color: 'white'}}>Cascade Ice</h1>
-                        <style jsx>{`
-                            @media screen and (min-width: 601px) { #title { font-size: 80px;}}
-                            @media screen and (max-width: 600px) { #title { font-size: 50px;}}`}
-                        </style>
-                        <p>
-                            {/*Beta, community, and inspiration for ice climbing in the Evergreen State. Sharpen your tools. The hunt is on.*/}
-                            Close to Home. Far Flung Odds. Endless Adventure.
-                        </p>
-                        <div style={{margin: "30px"}}>
-                            <Button
-                                size="large"
-                                style={{width: "200px", margin: "10px", backgroundColor: theme.colors.accent}}
-                                onClick={() => router.push("/routes")}>
-                                Browse Routes
-                            </Button>
-                            <Button
-                                size="large"
-                                style={{width: "200px", margin: "10px"}}
-                                onClick={() => router.push("/map")}>
-                                View Map
-                            </Button>
-                        </div>
-                    {/*</div>*/}
+                    <h1 id="title" style={{color: 'white', marginBottom: '0px'}}>Cascade Ice</h1>
+                    <style jsx>{`
+                        @media screen and (min-width: 601px) { #title { font-size: 80px;} #cover-icon {height: 150px;}}
+                        @media screen and (max-width: 600px) { #title { font-size: 50px;} #cover-icon {height: 100px;}}`}
+                    </style>
+                    <img src="/icons/favicon-white.png" id="cover-icon" style={{ marginBottom: '10px'}}/>
+                    <p>
+                        Close to Home. Far Flung Odds. Endless Adventure.
+                    </p>
+                    <div style={{margin: "30px"}}>
+                        <Button
+                            size="large"
+                            style={{width: "200px", margin: "10px", backgroundColor: theme.colors.accent}}
+                            onClick={() => router.push("/routes")}>
+                            Browse Routes
+                        </Button>
+                        <Button
+                            size="large"
+                            style={{width: "200px", margin: "10px"}}
+                            onClick={() => router.push("/map")}>
+                            View Map
+                        </Button>
+                    </div>
 
                 </Content>
                 <Content style={{backgroundColor: 'white'}}>
@@ -122,9 +122,10 @@ export default function Index({contributors}) {
                                     <div className="textBlock">
                                     <Title>What's New</Title>
                                         <ul>
-                                            <li>Routes: Superalpine, Hot Tubbs</li>
+                                            <li>Eight new climbs</li>
                                             <li>Browsing routes</li>
                                             <li>Caltopo maps imbedded in approach description</li>
+                                            <li>Route topos</li>
                                             <li>Map with pins marking routes</li>
                                         </ul>
                                     </div>
@@ -154,7 +155,7 @@ export default function Index({contributors}) {
                                             looking for more routes to include, so please send them our way!
                                         </p>
                                         <p>
-                                            If you would like to contribute to development, please email (insert email here).
+                                            If you would like to contribute to development, please email <a href="mailto:cascadeiceguide@gmail.com">cascadeiceguide@gmail.com</a>.
                                             Our code is open source
                                             on <a href="https://github.com/Washington-Ice-Climbing/ice-conditions-map" target="_blank">Github.com</a>.
                                         </p>

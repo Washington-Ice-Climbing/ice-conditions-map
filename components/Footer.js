@@ -6,7 +6,12 @@ export default function PageFooter() {
     return (
         <Footer
             style={{ textAlign: 'center', backgroundColor: 'white'}}>
-            <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+            <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center'}}>
+                <div className="footer-item">
+                    <Link href="/" as={`/`}>
+                        <a>Home</a>
+                    </Link>
+                </div>
                 <div className="footer-item">
                     <a href="mailto:cascadeiceguide@gmail.com">Contact</a>
                 </div>
@@ -18,15 +23,18 @@ export default function PageFooter() {
                         <a>Disclaimer</a>
                     </Link>
                 </div>
-                <div style={{flexGrow: '1'}}/>
+                <div style={{flexGrow: '1'}}>
+                    <img src="/icons/favicon-black.png" style={{height: '40px'}}/>
+                </div>
                 <div className="footer-item">
                     Created by Kyle McCrohan and Daniel Smith ©2020
                 </div>
+
             </div>
             <style jsx>{`
                 .footer-item {
                     flex-grow: 0;
-                    margin: 7px 15px 7px 15px;
+                    margin: 0px 15px 0px 15px;
                 }
             `}</style>
         </Footer>

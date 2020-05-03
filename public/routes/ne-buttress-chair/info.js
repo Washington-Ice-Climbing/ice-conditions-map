@@ -11,7 +11,7 @@ export const info = {
     avalanche: "High",
     approach: "2-3 hours",
     season: "December - April",
-    fa: "?",
+    fa: "Unknown",
     map: "https://caltopo.com/m/8U73",
     coordinates:[-121.46503,47.4599],
     contributors:["KM"]

@@ -4,6 +4,7 @@ import { regions } from "../public/observations/regions";
 export class ObservationObject {
     constructor(json) {
         this.id = json.id;
+        this.key = json.id;
         this.date = new Date(json.date);
         this.route = json.route;
         this.region = json.region;

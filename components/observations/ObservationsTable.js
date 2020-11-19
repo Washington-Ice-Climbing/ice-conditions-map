@@ -5,6 +5,7 @@ import ObservationExpandable from "./ObservationExpandable";
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 import { getRegions } from "../../utils/DataLoader";
+import { useRouter } from 'next/router'
 
 const regionFilters = getRegions().map(r => (
     {
@@ -140,7 +141,7 @@ class ObservationsTableClass extends React.Component {
         const narrowViewport = this.props.width < '800';
         const displayColumns = narrowViewport ? narrowColumns : fullColumns;
         const expandable = narrowViewport ? {
-            expandedRowRender: obs => <ObservationExpandable observation={obs}/>,
+            expandedRowRender: obs => <ObservationExpandable key={obs.id} observation={obs}/>,
             rowExpandable: () => true
         } : null;
 
@@ -150,6 +151,7 @@ class ObservationsTableClass extends React.Component {
                     dataSource={this.props.observations}
                     columns={displayColumns}
                     expandable={expandable}
+                    onRow={this.props.onRowClick}
                 />
             </div>
         );
@@ -158,5 +160,14 @@ class ObservationsTableClass extends React.Component {
 
 export default function ObservationsTable(props) {
     const { height, width} = useWindowDimensions();
-    return<ObservationsTableClass {...props} width={width}/>;
+    const router = useRouter()
+    return <ObservationsTableClass
+        {...props}
+        width={width}
+        onRowClick={(observation, rowIndex) => {
+            return {
+                onClick: _ => { router.push('/observation/' + observation.id) }
+            };
+        }}
+    />;
 }

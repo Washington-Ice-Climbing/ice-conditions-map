@@ -8,6 +8,7 @@ import Router from 'next/router';
 import dynamic from 'next/dynamic';
 import Head from 'next/head'
 import {ObservationObject} from "../../objects/ObservationObject";
+import PageFooter from "../../components/Footer";
 
 const { Title, Text } = Typography;
 const { Content } = Layout;
@@ -23,9 +24,9 @@ export default class Index extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{display: 'flex', flexDirection: 'column', height:'100vh'}}>
                 <Head>
-                    <title>Map | Cascade Ice</title>
+                    <title>Observations | Cascade Ice</title>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 </Head>
                 <Topbar
@@ -40,12 +41,13 @@ export default class Index extends React.Component {
                     <Content style={{padding: '20px'}}>
                         <Title level={3}>Ice Observations</Title>
                         <Divider style={{backgroundColor: '#BEBEBE'}}/>
-                        <Content style={{paddingBottom: '15px'}}>
+                        <Content style={{paddingBottom: '15px', flexGrow: '2'}}>
                             <Text>We depend on community observations. Attempted a route? Saw a cool flow that might go?
                                 Share the stoke. Any observation is helpful. To submit an observation, click here.</Text>
                         </Content>
                         <ObservationsTable observations={this.observations}/>
                     </Content>
+                    <PageFooter/>
                 </Layout>
             </div>
         )
@@ -55,10 +57,10 @@ export default class Index extends React.Component {
 export async function getStaticProps() {
     return { props: { observations : [
                 {
-                    key: 1,
+                    id: 1,
                     date: "2020-11-10",
                     route: "Chair Peak NE Buttress",
-                    region: "I90",
+                    region: "SP",
                     iceFound: true,
                     iceClimbed: true,
                     notes: "NE Buttress was fun climb",
@@ -66,29 +68,29 @@ export async function getStaticProps() {
                     observer: "Kyle 2.0"
                 },
                 {
-                    key: 2,
+                    id: 2,
                     date: "2020-11-12",
                     route: "undocumented 1 mile NE of Alpental Falls",
-                    region: "I90",
+                    region: "SP",
                     iceFound: true,
                     iceClimbed: false,
                     link: "found this cool climb near Alpental",
                     observer: "Kyle 1.0"
                 },
                 {
-                    key: 4,
+                    id: 4,
                     date: "2020-11-04",
                     route: "Heliotrope Water Ice",
-                    region: "Baker",
+                    region: "NCW",
                     iceFound: false,
                     iceClimbed: false,
                     notes: "Warm weather killed it",
                 },
                 {
-                    key: 3,
+                    id: 3,
                     date: "2020-10-27",
                     route: "Heliotrope Water Ice",
-                    region: "Baker",
+                    region: "NCW",
                     iceFound: true,
                     iceClimbed: true,
                     notes: "Heliotrope Ice looking good",

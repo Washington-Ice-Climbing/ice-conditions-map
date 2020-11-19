@@ -1,69 +1,141 @@
-import { Table, Layout } from "antd";
+import { Table, Input, Button, Space } from "antd";
 import React from "react";
 import useWindowDimensions from "../../utils/Viewport";
 import ObservationExpandable from "./ObservationExpandable";
+import Highlighter from 'react-highlight-words';
+import { SearchOutlined } from '@ant-design/icons';
+import { getRegions } from "../../utils/DataLoader";
 
-const narrowColumns = [
+const regionFilters = getRegions().map(r => (
     {
-        title: 'Date',
-        dataIndex: 'dateString',
-        key: 'date',
-        sorter: (a, b) => a.date > b.date,
-        defaultSortOrder: 'descend',
-        sortDirections: ['descend'],
-    },
-    {
-        title: 'Route',
-        dataIndex: 'route',
-        key: 'route',
-    },
-];
-
-const fullColumns = narrowColumns.concat([
-    {
-        title: 'Ice Found?',
-        dataIndex: 'iceFoundText',
-        key: 'found',
-        sorter: (a, b) => a.iceFound > b.iceFound,
-        sortDirections: ['descend'],
-    },
-    {
-        title: 'Ice Climbed?',
-        dataIndex: 'iceClimbedText',
-        key: 'climbed',
-        sorter: (a, b) => a.iceClimbed > b.iceClimbed,
-        sortDirections: ['descend'],
-    },
-    {
-        title: 'Region',
-        dataIndex: 'region',
-        key: 'region',
-        filters: [
-            {
-                text: 'I90',
-                value: 'I90',
-            },
-            {
-                text: 'Baker',
-                value: 'Baker',
-            }
-        ],
-        onFilter: (value, record) => record.region === value
-    },
-    {
-        title: 'Observer',
-        dataIndex: 'observerText',
-        key: 'observer',
+        text: r.name,
+        value: r.id
     }
-])
+));
 
 class ObservationsTableClass extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            searchText: '',
+            searchedColumn: '',
+        };
     }
 
+    getColumnSearchProps = dataIndex => ({
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+            <div style={{ padding: 8 }}>
+                <Input
+                    ref={node => {
+                        this.searchInput = node;
+                    }}
+                    placeholder={`Search ${dataIndex}`}
+                    value={selectedKeys[0]}
+                    onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                    onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+                    style={{ width: 188, marginBottom: 8, display: 'block' }}
+                />
+                <Space>
+                    <Button
+                        type="primary"
+                        onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+                        icon={<SearchOutlined />}
+                        size="small"
+                        style={{ width: 90 }}
+                    >
+                        Search
+                    </Button>
+                    <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
+                        Reset
+                    </Button>
+                </Space>
+            </div>
+        ),
+        filterIcon: filtered => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
+        onFilter: (value, record) =>
+            record[dataIndex]
+                ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
+                : '',
+        onFilterDropdownVisibleChange: visible => {
+            if (visible) {
+                setTimeout(() => this.searchInput.select(), 100);
+            }
+        },
+        render: text =>
+            this.state.searchedColumn === dataIndex ? (
+                <Highlighter
+                    highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+                    searchWords={[this.state.searchText]}
+                    autoEscape
+                    textToHighlight={text ? text.toString() : ''}
+                />
+            ) : (
+                text
+            ),
+    });
+
+    handleSearch = (selectedKeys, confirm, dataIndex) => {
+        confirm();
+        this.setState({
+            searchText: selectedKeys[0],
+            searchedColumn: dataIndex,
+        });
+    };
+
+    handleReset = clearFilters => {
+        clearFilters();
+        this.setState({ searchText: '' });
+    };
+
     render() {
+
+        const narrowColumns = [
+            {
+                title: 'Date',
+                dataIndex: 'dateString',
+                key: 'date',
+                sorter: (a, b) => a.date > b.date,
+                defaultSortOrder: 'descend',
+                sortDirections: ['descend'],
+            },
+            {
+                title: 'Route',
+                dataIndex: 'route',
+                key: 'route',
+                ...this.getColumnSearchProps('route')
+            },
+        ];
+
+        const fullColumns = narrowColumns.concat([
+            {
+                title: 'Ice Found?',
+                dataIndex: 'iceFoundText',
+                key: 'found',
+                sorter: (a, b) => a.iceFound > b.iceFound,
+                sortDirections: ['descend'],
+            },
+            {
+                title: 'Ice Climbed?',
+                dataIndex: 'iceClimbedText',
+                key: 'climbed',
+                sorter: (a, b) => a.iceClimbed > b.iceClimbed,
+                sortDirections: ['descend'],
+            },
+            {
+                title: 'Region',
+                dataIndex: 'region',
+                key: 'region',
+                render: r => r.name,
+                filters: regionFilters,
+                onFilter: (value, record) => record.region.id === value,
+            },
+            {
+                title: 'Observer',
+                dataIndex: 'observerText',
+                key: 'observer',
+            }
+        ]);
 
         const narrowViewport = this.props.width < '800';
         const displayColumns = narrowViewport ? narrowColumns : fullColumns;

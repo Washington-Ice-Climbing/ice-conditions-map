@@ -1,6 +1,9 @@
+import { RegionObject } from "./RegionObject";
+import { regions } from "../public/observations/regions";
+
 export class ObservationObject {
     constructor(json) {
-        this.key = json.key;
+        this.id = json.id;
         this.date = new Date(json.date);
         this.route = json.route;
         this.region = json.region;
@@ -9,6 +12,7 @@ export class ObservationObject {
         this.notes = json.notes;
         this.link = json.link;
         this.observer = json.observer;
+        this.region = new RegionObject(regions.find(r => r.id === json.region));
         this.setAdditionalTexts()
     }
 

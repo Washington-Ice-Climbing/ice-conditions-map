@@ -1,5 +1,6 @@
 import { routes } from '../public/routes/routes'
 import { contributors } from "../public/contributors/contributors";
+import { regions } from "../public/observations/regions";
 import fs from 'fs';
 import path from 'path';
 
@@ -16,6 +17,10 @@ export async function getRoutes() {
 
 export function getContributors() {
     return contributors;
+}
+
+export function getRegions() {
+    return regions;
 }
 
 // Returns all route image, info, and content

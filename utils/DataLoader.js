@@ -1,6 +1,7 @@
 import { routes } from '../public/routes/routes'
 import { contributors } from "../public/contributors/contributors";
 import { regions } from "../public/observations/regions";
+import { observations } from "../public/observations/observations";
 import fs from 'fs';
 import path from 'path';
 
@@ -21,6 +22,15 @@ export function getContributors() {
 
 export function getRegions() {
     return regions;
+}
+
+export function getObservations() {
+    return observations;
+}
+
+export async function getObservation(oid) {
+    const ob = getObservations().find(o => String(oid) === String(o.id));
+    return ob;
 }
 
 // Returns all route image, info, and content

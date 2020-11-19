@@ -110,18 +110,14 @@ class ObservationsTableClass extends React.Component {
 
         const fullColumns = narrowColumns.concat([
             {
-                title: 'Ice Found?',
-                dataIndex: 'iceFoundText',
-                key: 'found',
-                sorter: (a, b) => a.iceFound > b.iceFound,
-                sortDirections: ['descend'],
+                title: 'Condition',
+                dataIndex: 'condition',
+                key: 'condition',
             },
             {
-                title: 'Ice Climbed?',
-                dataIndex: 'iceClimbedText',
+                title: 'Climbed?',
+                dataIndex: 'climbed',
                 key: 'climbed',
-                sorter: (a, b) => a.iceClimbed > b.iceClimbed,
-                sortDirections: ['descend'],
             },
             {
                 title: 'Region',
@@ -166,7 +162,7 @@ export default function ObservationsTable(props) {
         width={width}
         onRowClick={(observation, rowIndex) => {
             return {
-                onClick: _ => { router.push('/observation/' + observation.id) }
+                onClick: _ => { router.push('/observations/' + observation.id) }
             };
         }}
     />;

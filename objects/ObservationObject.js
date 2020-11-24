@@ -12,7 +12,9 @@ export class ObservationObject {
         this.climbed = json.climbed;
         this.notes = json.notes;
         this.link = json.link;
+        this.coordinates = json.coordinates;
         this.observer = json.observer;
+        this.images = json.images;
         this.region = new RegionObject(regions.find(r => r.id === json.region));
         this.setAdditionalTexts()
     }

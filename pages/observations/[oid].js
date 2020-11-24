@@ -8,6 +8,13 @@ import Topbar from "../../components/Topbar";
 import Router from 'next/router';
 import { LeftOutlined } from '@ant-design/icons';
 import Link from "next/link";
+import ObservationDetails from "../../components/observations/ObservationDetails";
+import ObservationNotes from "../../components/observations/ObservationNotes";
+import dynamic from 'next/dynamic';
+import ObservationPhotos from "../../components/observations/ObservationPhotos";
+import BalancedHeader from "../../components/observations/BalancedHeader";
+
+const Location = dynamic(() => import("../../components/observations/ObservationLocation"),  { ssr: false })
 
 const { Title, Text } = Typography;
 const { Content } = Layout;
@@ -20,6 +27,7 @@ export default class Observation extends React.Component {
     }
 
     render() {
+
         return (
             <div>
                 <Head>
@@ -33,19 +41,19 @@ export default class Observation extends React.Component {
                 />
                 <Layout style={{paddingTop: '55px'}}>
                     <Content style={{padding: '20px', maxWidth: '1500px', margin: "0 auto"}}>
-                        <div style={{display: 'flex', flexDirection: 'row'}}>
-                            <Link href="/observations" as={`/observations`}>
+                        <BalancedHeader
+                            left={<Link href="/observations" as={`/observations`}>
                                 <Button type="primary" icon={<LeftOutlined />} size='medium'>
                                     Back to Observations
                                 </Button>
-                            </Link>
-                            <div style={{flexGrow: '2'}} />
-                            <Title level={3}>Ice Observation</Title>
-                        </div>
+                            </Link>}
+                            right={<Title level={3} style={{marginTop: '10px'}}>Ice Observation</Title>}/>
                         <Divider style={{backgroundColor: '#BEBEBE'}}/>
                         <Content style={{paddingBottom: '15px', flexGrow: '2'}}>
-                            <Text>We depend on community observations. Attempted a route? Saw a cool flow that might go?
-                                Share the stoke. Any observation is helpful. To submit an observation, click here.</Text>
+                            <ObservationDetails observation={this.observation}/>
+                            <ObservationNotes observation={this.observation}/>
+                            <ObservationPhotos images={this.observation.images}/>
+                            <Location coordinates={this.observation.coordinates}/>
                         </Content>
                     </Content>
                     <PageFooter/>

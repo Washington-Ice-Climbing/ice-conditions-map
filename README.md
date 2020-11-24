@@ -51,6 +51,10 @@ To deploy, first deploy locally, making sure everything will work fine when it i
 now dev
 ```
 You can visit the site at `http://localhost:3000` and make sure it's all good.
+To do this, you will probably need an `.env.build` file with any env vars like:
+```.env
+MAPBOX_API_KEY=<key>
+```
 
 Then, simply type:
 ```.env

@@ -6,6 +6,7 @@ import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 import { getRegions } from "../../utils/DataLoader";
 import { useRouter } from 'next/router'
+import Link from "next/link";
 
 const regionFilters = getRegions().map(r => (
     {
@@ -64,16 +65,20 @@ class ObservationsTableClass extends React.Component {
             }
         },
         render: text =>
-            this.state.searchedColumn === dataIndex ? (
-                <Highlighter
-                    highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-                    searchWords={[this.state.searchText]}
-                    autoEscape
-                    textToHighlight={text ? text.toString() : ''}
-                />
-            ) : (
-                text
-            ),
+            <a>
+                {
+                    this.state.searchedColumn === dataIndex ? (
+                        <Highlighter
+                            highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+                            searchWords={[this.state.searchText]}
+                            autoEscape
+                            textToHighlight={text ? text.toString() : ''}
+                        />
+                    ) : (
+                        text
+                    )
+                }
+            </a>,
     });
 
     handleSearch = (selectedKeys, confirm, dataIndex) => {

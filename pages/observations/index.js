@@ -1,12 +1,15 @@
 import Topbar from "../../components/Topbar";
 import React from "react";
-import { Typography, Divider, Layout } from 'antd';
+import { Typography, Divider, Layout, Button } from 'antd';
 import { getObservations } from "../../utils/DataLoader";
 import ObservationsTable from "../../components/observations/ObservationsTable";
 import Router from 'next/router';
 import Head from 'next/head'
 import { ObservationObject } from "../../objects/ObservationObject";
 import PageFooter from "../../components/Footer";
+import { RightOutlined } from '@ant-design/icons';
+import Link from "next/link";
+import BalancedHeader from "../../components/observations/BalancedHeader";
 
 const { Title, Text } = Typography;
 const { Content } = Layout;
@@ -32,11 +35,18 @@ export default class Index extends React.Component {
                 />
                 <Layout style={{paddingTop: '55px'}}>
                     <Content style={{padding: '20px'}}>
-                        <Title level={3}>Ice Observations</Title>
+                        <BalancedHeader
+                            left={<Title level={3} style={{marginTop: '10px'}}>Ice Observations</Title>}
+                            right={<Link href="/observations" as={`/observations`}>
+                                <Button type="primary" icon={<RightOutlined />} size='medium' >
+                                    Submit an Observation
+                                </Button>
+                            </Link>}/>
+
                         <Divider style={{backgroundColor: '#BEBEBE'}}/>
                         <Content style={{paddingBottom: '15px', flexGrow: '2'}}>
                             <Text>We depend on community observations. Attempted a route? Saw a cool flow that might go?
-                                Share the stoke. Any observation is helpful. To submit an observation, click here.</Text>
+                                Share the stoke. Any observation is helpful.</Text>
                         </Content>
                         <ObservationsTable observations={this.observations}/>
                     </Content>

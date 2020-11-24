@@ -3,11 +3,11 @@ import { Typography, Divider, Card, Row, Col } from 'antd';
 
 const { Title } = Typography;
 
-export default function ObservationPhotos({images}) {
+export default function ObservationPhotos({images, onPhotoClick}) {
     if (images == null || images.length == 0)
         return null;
 
-    const photos = images.map(src => <Photo src={src} key={src}/>)
+    const photos = images.map((src, index) => <Photo src={src} key={index} onClick={() => onPhotoClick(index)}/>)
 
     return (
         <div>
@@ -20,10 +20,12 @@ export default function ObservationPhotos({images}) {
     )
 }
 
-function Photo({src}) {
+function Photo({src, onClick}) {
     return (
         <Col span={6} md={6} sm={12} xs={24} style={{margin: '8px 0px'}}>
-            <img src={src} style={{width: '100%'}}/>
+            <div onClick={onClick}>
+                <img src={src} style={{width: '100%'}}/>
+            </div>
         </Col>
     )
 }

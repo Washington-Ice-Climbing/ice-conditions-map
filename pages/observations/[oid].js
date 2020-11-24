@@ -13,6 +13,8 @@ import ObservationNotes from "../../components/observations/ObservationNotes";
 import dynamic from 'next/dynamic';
 import ObservationPhotos from "../../components/observations/ObservationPhotos";
 import BalancedHeader from "../../components/observations/BalancedHeader";
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 const Location = dynamic(() => import("../../components/observations/ObservationLocation"),  { ssr: false })
 
@@ -24,9 +26,36 @@ export default class Observation extends React.Component {
     constructor(props) {
         super(props);
         this.observation = new ObservationObject(this.props.observation)
+        this.state = {
+            photoIndex: 0,
+            photoIsOpen: false,
+        };
+    }
+
+    onPhotoClick = index => {
+        this.setState({
+            photoIndex: index,
+            photoIsOpen: true
+        })
     }
 
     render() {
+        const {photoIsOpen, photoIndex} = this.state;
+        const images = this.observation.images;
+
+        const photoLightbox = !photoIsOpen ? null :
+            <Lightbox
+                mainSrc={images[photoIndex]}
+                nextSrc={images[(photoIndex + 1) % images.length]}
+                prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                onCloseRequest={() => this.setState({ photoIsOpen: false })}
+                onMovePrevRequest={() =>
+                    this.setState({ photoIndex: (photoIndex + images.length - 1) % images.length})
+                }
+                onMoveNextRequest={() =>
+                    this.setState({photoIndex: (photoIndex + 1) % images.length})
+                }
+            />;
 
         return (
             <div>
@@ -52,11 +81,12 @@ export default class Observation extends React.Component {
                         <Content style={{paddingBottom: '15px', flexGrow: '2'}}>
                             <ObservationDetails observation={this.observation}/>
                             <ObservationNotes observation={this.observation}/>
-                            <ObservationPhotos images={this.observation.images}/>
+                            <ObservationPhotos images={this.observation.images} onPhotoClick={this.onPhotoClick}/>
                             <Location coordinates={this.observation.coordinates}/>
                         </Content>
                     </Content>
                     <PageFooter/>
+                    {photoLightbox}
                 </Layout>
             </div>
         )

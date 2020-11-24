@@ -60,7 +60,7 @@ export default class Observation extends React.Component {
         return (
             <div>
                 <Head>
-                    <title>Observations | Cascade Ice</title>
+                    <title>Observation Details | Cascade Ice</title>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 </Head>
                 <Topbar

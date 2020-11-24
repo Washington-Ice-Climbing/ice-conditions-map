@@ -27,7 +27,7 @@ export default function PageFooter() {
                     <img src="/icons/favicon-black.png" style={{height: '40px'}}/>
                 </div>
                 <div className="footer-item">
-                    Created by Kyle McCrohan and Daniel Smith ©2020
+                    Created by Kyle McCrohan ©2020
                 </div>
 
             </div>

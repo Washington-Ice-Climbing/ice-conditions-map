@@ -20,7 +20,7 @@ export class ObservationObject {
     }
 
     setAdditionalTexts() {
-        this.observerText = this.observer ? this.observer : 'anonymous';
+        this.observerText = this.observer ? this.observer : 'Anonymous';
         this.dateString = this.date.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })
     }
 }

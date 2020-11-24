@@ -37,7 +37,7 @@ export default class Index extends React.Component {
                     <Content style={{padding: '20px'}}>
                         <BalancedHeader
                             left={<Title level={3} style={{marginTop: '10px'}}>Ice Observations</Title>}
-                            right={<Link href="/observations" as={`/observations`}>
+                            right={<Link href="/observations/submit">
                                 <Button type="primary" icon={<RightOutlined />} size='medium' >
                                     Submit an Observation
                                 </Button>
@@ -45,8 +45,9 @@ export default class Index extends React.Component {
 
                         <Divider style={{backgroundColor: '#BEBEBE'}}/>
                         <Content style={{paddingBottom: '15px', flexGrow: '2'}}>
-                            <Text>We depend on community observations. Attempted a route? Saw a cool flow that might go?
-                                Share the stoke. Any observation is helpful.</Text>
+                            <Text>We depend on community observations. Attempted a route? Saw a cool flow that might
+                                go? <Link href="/observations/submit">Share the stoke. </Link>
+                                Any observation is helpful.</Text>
                         </Content>
                         <ObservationsTable observations={this.observations}/>
                     </Content>

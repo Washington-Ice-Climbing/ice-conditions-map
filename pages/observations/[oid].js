@@ -69,7 +69,7 @@ export default class Observation extends React.Component {
                     subTitle="An Alpine Enigma"
                 />
                 <Layout style={{paddingTop: '55px'}}>
-                    <Content style={{padding: '20px', maxWidth: '1500px', margin: "0 auto"}}>
+                    <Content style={{padding: '30px', maxWidth: '1500px', margin: "0 auto"}}>
                         <BalancedHeader
                             left={<Link href="/observations" as={`/observations`}>
                                 <Button type="primary" icon={<LeftOutlined />} size='medium'>

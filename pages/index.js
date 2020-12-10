@@ -47,14 +47,14 @@ export default function Index({contributors}) {
                         <Button
                             size="large"
                             style={{width: "200px", margin: "10px", backgroundColor: theme.colors.accent}}
-                            onClick={() => router.push("/routes")}>
-                            Browse Routes
+                            onClick={() => router.push("/observations")}>
+                            View Observations
                         </Button>
                         <Button
                             size="large"
                             style={{width: "200px", margin: "10px"}}
-                            onClick={() => router.push("/map")}>
-                            View Map
+                            onClick={() => router.push("/routes")}>
+                            Browse Routes
                         </Button>
                     </div>
 
@@ -87,29 +87,33 @@ export default function Index({contributors}) {
                             <Row gutter={16} type="flex">
                                 <Col span={6} lg={6} md={12} sm={24} xs={24} key="1">
                                     <FeatureCard
-                                        title="Browse"
-                                        description="Filter by region and difficulty."
+                                        title="Explore"
+                                        description="View observations submitted by other climbers."
+                                        href="/observations"
                                         img="icons/xdream.png"
                                         color={theme.colors.primary}/>
                                 </Col>
                                 <Col span={6} lg={6} md={12} sm={24} xs={24} key="2">
                                     <FeatureCard
-                                        title="Discover"
-                                        description="Interactive map with routes and condition reports."
+                                        title="Research"
+                                        description="Get detailed descriptions and beta for 10+ routes."
+                                        href="/routes"
                                         img="icons/icescrew.png"
                                         color={theme.colors.link}/>
                                 </Col>
                                 <Col span={6} lg={6} md={12} sm={24} xs={24} key="3">
                                     <FeatureCard
-                                        title="Enhance"
-                                        description="Integrated caltopo maps and gpx tracks."
+                                        title="Visualize"
+                                        description="Browse a map with established routes."
+                                        href="/map"
                                         img="icons/boot.png"
                                         color={theme.colors.accent2}/>
                                 </Col>
                                 <Col span={6} lg={6} md={12} sm={24} xs={24} key="4">
                                     <FeatureCard
-                                        title="Inspire"
-                                        description="Hear the stories of other climbers."
+                                        title="Share"
+                                        description="Submit observations to help other climbers."
+                                        href="/observations/submit"
                                         img="icons/rope.png"
                                         color={theme.colors.accent}/>
                                 </Col>

@@ -1,6 +1,6 @@
 # Cascade Ice
 Cascade ice climbing guide.
-Check it out at [https://wa-ice.now.sh]( https://wa-ice.now.sh).
+Check it out at [https://cascade-ice.now.sh]( https://cascade-ice.now.sh).
 
 ## Getting started
 Install dependencies:
@@ -22,8 +22,8 @@ source .env
 #### Admin Only
 To change the api key uploaded to `now`:
 ```.env
-now secrets rm mapbox-api-key
-now secrets add mapbox-api-key <key>
+vercel secrets rm mapbox-api-key
+vercel secrets add mapbox-api-key <key>
 ```
 
 ### Launch the app

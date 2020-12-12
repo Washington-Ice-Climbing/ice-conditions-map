@@ -5,7 +5,7 @@ export class ObservationObject {
     constructor(json) {
         this.id = json.id;
         this.key = json.id;
-        this.date = new Date(json.date);
+        this.date = new Date(json.date + " PST");
         this.route = json.route;
         this.region = json.region;
         this.condition = json.condition;

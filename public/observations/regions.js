@@ -34,5 +34,13 @@ export const regions = [
     {
         id: 'EW',
         name: 'Eastern Washington',
+    },
+    {
+        id: 'OM',
+        name: 'Olympic Mountains'
+    },
+    {
+        id: 'O',
+        name: 'Oregon'
     }
 ]
